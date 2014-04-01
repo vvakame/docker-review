@@ -11,4 +11,4 @@ RUN gem install review rake --no-rdoc --no-ri
 
 # install node.js environment
 RUN apt-get install -y nodejs npm
-RUN ls -sl /usr/bin/nodejs /usr/bin/node
+RUN ln -s /usr/bin/nodejs /usr/bin/node
