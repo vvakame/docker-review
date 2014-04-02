@@ -1,6 +1,6 @@
 # Re:VIEW image for Docker
 
-このリポジトリは[Docler](https://www.docker.io/)上で[Re:VIEW](https://github.com/kmuto/review/)を動かすためのものです。
+このリポジトリは[Docker](https://www.docker.io/)上で[Re:VIEW](https://github.com/kmuto/review/)を動かすためのものです。
 
 利用可能になるのは、review関連コマンドとrakeコマンド、texlive関連コマンド、vvakameの趣味により、Node.jsの利用環境とgitコマンドも整備されます。
 
