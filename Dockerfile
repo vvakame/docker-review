@@ -2,6 +2,10 @@ FROM debian:jessie
 MAINTAINER vvakame
 
 # setup
+RUN locale-gen en_US.UTF-8
+RUN update-locale LANG=en_US.UTF-8
+ENV LC_ALL C
+ENV LC_ALL en_US.UTF-8
 RUN apt-get update
 RUN apt-get install -y git-core
 
