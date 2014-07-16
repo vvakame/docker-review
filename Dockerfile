@@ -4,6 +4,7 @@ MAINTAINER vvakame
 # setup
 RUN apt-get update
 RUN apt-get install -y locales
+RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
 RUN locale-gen en_US.UTF-8
 RUN update-locale en_US.UTF-8
 RUN apt-get install -y git-core
