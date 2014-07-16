@@ -1,6 +1,8 @@
 FROM debian:jessie
 MAINTAINER vvakame
 
+ENV LANG en_US.UTF-8
+
 # setup
 RUN apt-get update
 RUN apt-get install -y locales
