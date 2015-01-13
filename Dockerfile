@@ -13,6 +13,7 @@ RUN apt-get install -y git-core
 
 # install Re:VIEW environment
 RUN apt-get install -y texlive-lang-cjk texlive-fonts-recommended
+RUN apt-get install -y --no-install-recommends zip
 RUN gem install review rake --no-rdoc --no-ri
 
 # install node.js environment
