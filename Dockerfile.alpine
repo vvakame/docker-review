@@ -1,0 +1,20 @@
+FROM alpine:edge
+# I want to use testing apk repo that have a texlive package! because, this Dockerfile using edge version.
+MAINTAINER vvakame
+
+ENV LANG en_US.UTF-8
+
+RUN apk add --update \
+      bash \
+      git \
+      curl \
+      zip \
+      ruby-dev \
+      ruby-io-console ruby-bundler ruby-rake \
+      nodejs \
+    && apk add --update --repository http://dl-4.alpinelinux.org/alpine/edge/testing/ texlive-full \
+    && rm -rf /var/cache/apk/* \
+    && gem install review review-peg --no-rdoc --no-ri && gem cleanup \
+    && npm install -g npm && npm cache clean
+
+# 未完！実際にPDF生成してみようとするとエラーになる https://github.com/vvakame/docker-review/issues/3
