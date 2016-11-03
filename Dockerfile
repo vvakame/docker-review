@@ -17,5 +17,5 @@ RUN apt-get install -y --no-install-recommends zip
 RUN gem install review review-peg bundler rake --no-rdoc --no-ri
 
 # install node.js environment
-RUN curl -sL https://deb.nodesource.com/setup_4.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
 RUN apt-get install -y nodejs
