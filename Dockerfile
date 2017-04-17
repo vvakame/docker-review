@@ -12,7 +12,7 @@ RUN update-locale en_US.UTF-8
 RUN apt-get install -y git-core curl
 
 # install Re:VIEW environment
-RUN apt-get install -y texlive-lang-japanese texlive-fonts-recommended
+RUN apt-get install -y texlive-lang-japanese texlive-fonts-recommended && kanji-config-updmap ipaex
 RUN apt-get install -y --no-install-recommends zip
 RUN gem install review review-peg bundler rake --no-rdoc --no-ri
 
