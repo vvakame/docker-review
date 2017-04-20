@@ -12,8 +12,13 @@ RUN update-locale en_US.UTF-8
 RUN apt-get install -y git-core curl
 
 # install Re:VIEW environment
-RUN apt-get install -y texlive-lang-japanese texlive-fonts-recommended texlive-latex-extra && kanji-config-updmap ipaex
-RUN apt-get install -y --no-install-recommends zip
+## NOTE noto serif is experimental. can't install via fonts-noto-cjk now.
+RUN curl -sL -o /tmp/noto.deb https://kmuto.jp/debian/noto/fonts-noto-cjk_1.004+repack3-1~exp1_all.deb && dpkg -i /tmp/noto.deb && rm /tmp/noto.deb && \
+    apt-get install -y texlive-lang-japanese texlive-fonts-recommended texlive-latex-extra && \
+    apt-get install -y --no-install-recommends ghostscript gsfonts zip ruby-zip ruby-nokogiri ruby-mecab mecab mecab-ipadic-utf8 poppler-data && \
+    kanji-config-updmap ipaex && \
+    apt-get clean
+ADD ./noto-font.map /etc/texmf
 RUN gem install review review-peg bundler rake --no-rdoc --no-ri
 
 # install node.js environment
