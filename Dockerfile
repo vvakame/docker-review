@@ -16,8 +16,8 @@ RUN apt-get install -y git-core curl
 ADD https://kmuto.jp/debian/noto/noto-map.tgz /tmp/noto-map.tgz
 RUN mkdir -p /usr/share/texlive/texmf-dist/fonts/map/dvipdfmx/ptex-fontmaps && cd /usr/share/texlive/texmf-dist/fonts/map/dvipdfmx/ptex-fontmaps && tar zxvf /tmp/noto-map.tgz && rm /tmp/noto-map.tgz
 
-# set cache folder to work folder
-RUN mkdir -p /etc/texmf/texmf.d && echo "TEXMFVAR=/work/.texmf-var" > /etc/texmf/texmf.d/99local.cnf
+# set cache folder to work folder (disabled by default)
+# RUN mkdir -p /etc/texmf/texmf.d && echo "TEXMFVAR=/work/.texmf-var" > /etc/texmf/texmf.d/99local.cnf
 
 ## NOTE noto serif is experimental. can't install via fonts-noto-cjk now.
 ADD http://kmuto.jp/debian/noto/fonts-noto-cjk_1.004+repack3-1~exp1_all.deb /tmp/noto.deb
