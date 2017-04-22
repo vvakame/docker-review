@@ -1,6 +1,6 @@
 # Re:VIEW image for Docker
 
-このリポジトリは[Docker](https://www.docker.io/)上で[Re:VIEW](https://github.com/kmuto/review/)を動かすためのものです。
+このリポジトリは[Docker](https://www.docker.com/)上で[Re:VIEW](https://github.com/kmuto/review/)を動かすためのものです。
 
 [Docker Hub](https://hub.docker.com/r/vvakame/review/)にTrusted Buildとして置いてあるのでご活用ください。
 
