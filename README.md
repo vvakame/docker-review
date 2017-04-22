@@ -2,11 +2,29 @@
 
 このリポジトリは[Docker](https://www.docker.io/)上で[Re:VIEW](https://github.com/kmuto/review/)を動かすためのものです。
 
-利用可能になるのは、review関連コマンドとrakeコマンド、texlive関連コマンド、vvakameの趣味により、Node.jsの利用環境とgitコマンドも整備されます。
-
 [Docker index](https://index.docker.io/u/vvakame/review/)にTrusted Buildとして置いてあるのでご活用ください。
 
-最近台頭してきたCIサービスの[drone.io](https://drone.io/)はDockerをベースにしてるため、vvakame/reviewをベースに指定すればRe:VIEWドキュメントのビルドをCIサービス上で簡単に行うことができるでしょう。
+## 仕様
+
+### インストールされているコマンド
+
+* git
+* curl
+* texlive & 日本語環境
+* mecab （Re:VIEW 索引作成時に利用される）
+* ruby （Re:VIEW 実行環境）
+* node.js & npm （[FirstStepReVIEW v2](https://github.com/TechBooster/C89-FirstStepReVIEW-v2)用環境）
+* Re:VIEW & rake & bundler
+
+他。詳細は[Dockerfile](https://github.com/vvakame/docker-review/blob/master/Dockerfile)を参照してください。
+
+## TeX周りの初期設定
+
+PDF作成時、Notoフォントをデフォルトで利用しフォントの埋め込みも行うようになっています。
+
+* [IPAフォント](http://ipafont.ipa.go.jp/)のインストール
+  * 利用したい場合 `kanji-config-updmap ipaex` を実行する
+* [Notoフォント](https://www.google.com/get/noto/)のインストール & デフォルト利用指定
 
 ## 使い方
 
@@ -33,7 +51,7 @@
 ```
 
 `work`ディレクトリは任意の名前でよいです。後述のコマンドで`cd`する先になります。
-    
+
 - `vvakame/review` イメージを使用する
 
 - マウントしたディレクトリ内で任意のビルドコマンドを実行する
