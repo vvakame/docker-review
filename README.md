@@ -2,7 +2,7 @@
 
 このリポジトリは[Docker](https://www.docker.io/)上で[Re:VIEW](https://github.com/kmuto/review/)を動かすためのものです。
 
-[Docker index](https://index.docker.io/u/vvakame/review/)にTrusted Buildとして置いてあるのでご活用ください。
+[Docker Hub](https://hub.docker.com/r/vvakame/review/)にTrusted Buildとして置いてあるのでご活用ください。
 
 ## 仕様
 
