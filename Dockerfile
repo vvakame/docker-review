@@ -22,7 +22,7 @@ RUN gem install review review-peg bundler rake --no-rdoc --no-ri
 # install node.js environment
 RUN apt-get install -y gnupg
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
-RUN apt-get install -y nodejs
+RUN apt-get install -y nodejs && npm install -g yarn
 
 ## NOTE noto serif is experimental. can't install via fonts-noto-cjk now.
 #RUN echo "deb http://ftp.jp.debian.org/debian/ stretch-backports main" >> /etc/apt/sources.list
