@@ -31,9 +31,7 @@ ADD https://kmuto.jp/debian/noto/fonts-noto-cjk_1.004+repack3-1~exp1_all.deb /tm
 RUN dpkg -i /tmp/noto.deb && rm /tmp/noto.deb
 
 ## install font map of noto for dvipdfmx
-ADD https://kmuto.jp/debian/noto/noto-map.tgz /tmp/noto-map.tgz
-RUN tar Cxvf /usr/share/texlive/texmf-dist/fonts/map/dvipdfmx/ptex-fontmaps \
-    /tmp/noto-map.tgz && rm /tmp/noto-map.tgz
+ADD noto/ /usr/share/texlive/texmf-dist/fonts/map/dvipdfmx/ptex-fontmaps/noto/
 
 ## use noto for uplatex
 RUN texhash && kanji-config-updmap-sys noto
