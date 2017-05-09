@@ -56,7 +56,7 @@ Windows向けのDockerには、[Docker for Windows](https://docker.com/docker-wi
 
 ```
 PC
-└─ドキュメント
+└─ドキュメント（Documents）
     └─work
         ├─Dockerfile
         ├─docker-compose.yml
@@ -66,7 +66,9 @@ PC
         └……
 ```
 
-エクスプローラでworkフォルダを作ったら、次の2つのファイル「Dockerfile」「docker-compose.yml」をテキストエディタを使って作成し、workフォルダ内に配置します（メモ帳で作成した場合は拡張子`.txt`となっているのをエクスプローラで修正してください）。
+docker-composeの制約と思われますが、途中に空白のあるパスだとこのあとの実行に失敗します。「ドキュメント」フォルダはいわゆる「My Documents」（これは空白を含むので失敗します）のほか、「Documents」という名前でも参照できるので、その名前をここでは使います。
+
+エクスプローラでドキュメントフォルダ内にworkフォルダを作ったら、次の2つのファイル「Dockerfile」「docker-compose.yml」をテキストエディタを使って作成し、workフォルダ内に配置します（メモ帳で作成した場合は拡張子`.txt`となっているのをエクスプローラで修正してください）。
 
 Dockerfile
 ```
