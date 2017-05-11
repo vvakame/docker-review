@@ -61,6 +61,8 @@ PC
         ├─Dockerfile
         ├─docker-compose.yml
         ├─sampledoc
+        │  ├─Dockerfile
+        │  ├─docker-compose.yml
         │  ├─sampledoc.re
         │  └……
         └……
@@ -75,20 +77,18 @@ FROM vvakame/review
 
 docker-compose.yml
 ```
-version: '2'
+version: '3'
 services:
   review:
     volumes:
       - .:/work
     build: .
-
-networks:
-  default:
-    external:
-      name: bridge
+    working_dir: /work
 ```
 
 docker-compose.ymlの行頭インデントの違いは重要です。本ドキュメントからコピーペーストして使ってもよいでしょう。
+
+
 
 次にDockerターミナルで操作します。WindowsのGUIに慣れているとおどろおどろしいDockerターミナルですが、実際利用するコマンドの数はさほど多くはありません。このDockerターミナルはMinGWという小さなUnix互換環境になっており、Unixの一般的なコマンドを利用できます。
 
@@ -116,13 +116,11 @@ workフォルダ内（`cd ~/Documents/work`をした状態）で、docker-compos
 review-initコマンドはRe:VIEWドキュメントの雛型を作るコマンドです。新規に「sampledoc」を作ってみましょう。Docker経由で呼び出すには、Dockerターミナルで次のように実行します。
 
 ```
-docker-compose run --rm -w //work review review-init sampledoc
+docker-compose run review review-init sampledoc
 ```
 
 * 「docker-compose」は「docker-compose.exe」としても構いません。「docker-」と入力してTabキーを押せば補完されるでしょう。
 * 「run」はDockerコンテナで指定のコマンドを実行して終了する、という指令です。
-* 「--rm」はコマンド終了後にコンテナを削除するオプションです。DockerコンテナはDockerイメージから複製されるものなので、目的のコマンド実行を終えたら削除してしまっても問題ありません。
-* 「-w //work」はコンテナ内での作業フォルダを指定します。少々ややこしいのですが、この「/work」はDocuments\workのことではなく、docker-compose.ymlのvolumesパラメータで設定した「.:/work」、つまり「.（docker-compose.ymlのあるフォルダ）＝コンテナ内での/workフォルダ」と紐付けられた/workです。なお、本来の「/work」ではなく「//work」としているのは、MinGWの制約によるものです。
 * 「review」が使用するDockerイメージとなります。
 * 「review-init sampledoc」がDockerコンテナの上で実行されるRe:VIEWコマンドです。sampledocという名前の新規フォルダを作業フォルダ（work）内に作り、Re:VIEWドキュメントに必要な初期ファイル群を展開します。
 
@@ -132,19 +130,31 @@ docker-compose run --rm -w //work review review-init sampledoc
 
 この中の各ファイルについての詳細は、[Re:VIEW Quick Start Guide](https://github.com/kmuto/review/blob/master/doc/quickstart.ja.md)や[Re:VIEW Format Guide](https://github.com/kmuto/review/blob/master/doc/format.ja.md)、その他[https://github.com/kmuto/review/wiki](https://github.com/kmuto/review/wiki)にある各ドキュメントを参照してください。
 
-ひとまず、コンテンツを書き込むsampledoc.reファイルに、テキストエディタを利用して適当なテキストを書き込んでみることにします。
+次に、エクスプローラなどで**workフォルダにあるDockerfileファイルとdocker-compose.ymlファイルをこのsampledocフォルダにコピーしてください**。エクスプローラの代わりにDockerターミナル上で次のように実行することでもコピーできます。
+
+```
+cp docker-compose.yml Dockerfile sampledoc
+```
+
+コンテンツを書き込むsampledoc.reファイルに、テキストエディタを利用して適当なテキストを書き込んでみることにします。
 
 ![sampledoc.reの編集](windows-img/review2.png)
 
 ここではメモ帳を使っていますが、冒頭で述べたとおり、より適切なテキストエディタを使ったほうがよいでしょう。また、保存時には文字エンコーディングを「UTF-8」にしておく必要があります。
 
-PDFを生成するには、次のようにDockerターミナルで実行します。
+では、PDFを生成してみましょう。まず、sampledocフォルダに移動する必要があるので、次のようにDockerターミナルで実行して移動します。
 
 ```
-docker-compose run --rm -w //work/sampledoc review rake pdf
+cd ~/Documents/work/sampledoc
 ```
 
-今度はsampledocフォルダ内に対して実行するので「-w //work」ではなく「-w //work/sampledoc」としていることに注意してください。「rake pdf」がPDFを生成するコマンドです（内部では`review-pdfmaker config.yml`というRe:VIEWコマンドが呼び出されています）。
+PDFを生成するためには次のようにDockerターミナルで実行します。
+
+```
+docker-compose run review rake pdf
+```
+
+「rake pdf」がPDFを生成するコマンドです（内部では`review-pdfmaker config.yml`というRe:VIEWコマンドが呼び出されています）。
 
 sampledoc.reにエラーがなければ、sampledocフォルダにbook.pdfというPDFファイルが生成されます。
 
@@ -157,7 +167,7 @@ sampledoc.reにエラーがなければ、sampledocフォルダにbook.pdfとい
 EPUBを生成するのもほぼ同じで、次のようにDockerターミナルで実行します。「rake epub」がEPUBを生成するコマンドです（内部では`review-epubmaker config.yml`が呼び出されます）。
 
 ```
-docker-compose run --rm -w //work/sampledoc review rake epub
+docker-compose run review rake epub
 ```
 
 book.epubというEPUBファイルが生成されるので、Google Chromeブラウザの拡張機能である[Readium](http://readium.org/)でこのファイルを開いてみます。
@@ -175,3 +185,12 @@ docker-composeコマンドの詳細については、[https://docs.docker.com/co
 * docker-compose rm *コンテナID*: Dockerコンテナを削除する
 * docker-compose images: Dockerイメージを一覧する
 * docker-compose pull: Dockerイメージを更新する
+
+コンテンツ内に動的生成をしているものがあるなどの理由でネットワークを使う必要がある場合は、次の指定をdocker-compose.yml末尾に加えます。
+
+```
+networks:
+  default:
+    external:
+      name: bridge
+```
