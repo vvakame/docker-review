@@ -4,6 +4,9 @@
 
 [Docker Hub](https://hub.docker.com/r/vvakame/review/)にTrusted Buildとして置いてあるのでご活用ください。
 
+Windows用の手引は[こちら](https://github.com/vvakame/docker-review/blob/master/doc/windows-review.md)を参考にしてください。
+docker-composeを使った時の手引としても使えます。
+
 ## 仕様
 
 ### インストールされているコマンド
