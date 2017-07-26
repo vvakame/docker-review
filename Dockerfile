@@ -3,6 +3,7 @@ MAINTAINER vvakame
 
 ENV REVIEW_VERSION 2.3.0
 ENV REVIEW_PEG_VERSION 0.2.2
+ENV NODEJS_VERSION v8
 
 ENV LANG en_US.UTF-8
 
@@ -26,7 +27,7 @@ RUN gem install bundler rake --no-rdoc --no-ri && \
 
 # install node.js environment
 RUN apt-get install -y gnupg
-RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get install -y nodejs && npm install -g yarn
 
 ## NOTE noto serif is experimental. can't install via fonts-noto-cjk now.
