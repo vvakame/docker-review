@@ -1,6 +1,9 @@
 FROM debian:stretch-slim
 MAINTAINER vvakame
 
+ENV REVIEW_VERSION 2.3.0
+ENV REVIEW_PEG_VERSION 0.2.2
+
 ENV LANG en_US.UTF-8
 
 # setup
@@ -17,7 +20,9 @@ RUN apt-get install -y --no-install-recommends \
 # RUN kanji-config-updmap ipaex
 
 # setup Re:VIEW
-RUN gem install review review-peg bundler rake --no-rdoc --no-ri
+RUN gem install bundler rake --no-rdoc --no-ri && \
+    gem install review -v "$REVIEW_VERSION" --no-rdoc --no-ri && \
+    gem install review-peg -v "$REVIEW_PEG_VERSION" --no-rdoc --no-ri
 
 # install node.js environment
 RUN apt-get install -y gnupg
