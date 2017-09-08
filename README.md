@@ -1,5 +1,11 @@
 # Re:VIEW image for Docker
 
+[![CircleCI](https://circleci.com/gh/vvakame/docker-review.svg?style=svg)](https://circleci.com/gh/vvakame/docker-review)
+[![Docker Build Statu](https://img.shields.io/docker/build/vvakame/review.svg)](https://hub.docker.com/r/vvakame/review/)
+[![Docker Automated buil](https://img.shields.io/docker/automated/vvakame/review.svg)](https://hub.docker.com/r/vvakame/review/)
+[![Docker Stars](https://img.shields.io/docker/stars/vvakame/review.svg)](https://hub.docker.com/r/vvakame/review/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/vvakame/review.svg)](https://hub.docker.com/r/vvakame/review/)
+
 このリポジトリは[Docker](https://www.docker.com/)上で[Re:VIEW](https://github.com/kmuto/review/)を動かすためのものです。
 
 [Docker Hub](https://hub.docker.com/r/vvakame/review/)にTrusted Buildとして置いてあるのでご活用ください。
