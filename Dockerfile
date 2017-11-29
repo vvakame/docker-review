@@ -1,5 +1,5 @@
 FROM debian:stretch-slim
-MAINTAINER vvakame <vvakame@gmail.com>
+LABEL maintainer="vvakame@gmail.com"
 
 ENV REVIEW_VERSION 2.3.0
 ENV REVIEW_PEG_VERSION 0.2.2
