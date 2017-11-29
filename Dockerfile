@@ -3,7 +3,7 @@ LABEL maintainer="vvakame@gmail.com"
 
 ENV REVIEW_VERSION 2.4.0
 ENV REVIEW_PEG_VERSION 0.2.2
-ENV NODEJS_VERSION v8
+ENV NODEJS_VERSION 9
 
 ENV LANG en_US.UTF-8
 
@@ -37,7 +37,7 @@ RUN apt-get update && \
       gnupg && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - 
+RUN curl -sL https://deb.nodesource.com/setup_${NODEJS_VERSION}.x | bash - 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
       nodejs && \
