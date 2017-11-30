@@ -15,6 +15,16 @@ docker-composeを使った時の手引としても使えます。
 
 ## 仕様
 
+### サポートしているタグ
+
+Re:VIEWのバージョン毎にイメージを作成しています。
+現在存在しているタグは `latest`, `2.3`, `2.4` です。
+
+```
+$ docker pull vvakame/review:2.3
+$ docker pull vvakame/review:2.4
+```
+
 ### インストールされているコマンド
 
 * git
