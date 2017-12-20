@@ -43,7 +43,8 @@ RUN apt-get update && \
       nodejs && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
-    npm install -g yarn
+    npm install -g yarn && \
+    npm install --unsafe-perm -g textlint textlint-plugin-review textlint-rule-prh textlint-rule-preset-jtf-style
 
 ## NOTE noto serif is experimental. can't install via fonts-noto-cjk now.
 #RUN echo "deb http://ftp.jp.debian.org/debian/ stretch-backports main" >> /etc/apt/sources.list
