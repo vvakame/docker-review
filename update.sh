@@ -9,3 +9,8 @@ rm -rf review-2.4
 mkdir review-2.4
 cat Dockerfile | sed "s/^ENV REVIEW_VERSION .*$/ENV REVIEW_VERSION 2.4.0/" > review-2.4/Dockerfile
 cp -r noto review-2.4
+
+rm -rf review-2.5
+mkdir review-2.5
+cat Dockerfile | sed "s/^ENV REVIEW_VERSION .*$/ENV REVIEW_VERSION 2.5.0/" > review-2.5/Dockerfile
+cp -r noto review-2.5
