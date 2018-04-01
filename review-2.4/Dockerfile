@@ -1,7 +1,7 @@
 FROM debian:stretch-slim
 LABEL maintainer="vvakame@gmail.com"
 
-ENV REVIEW_VERSION 2.5.0
+ENV REVIEW_VERSION 2.4.0
 ENV REVIEW_PEG_VERSION 0.2.2
 ENV NODEJS_VERSION 9
 
@@ -15,15 +15,12 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
 RUN locale-gen en_US.UTF-8 && update-locale en_US.UTF-8
-RUN apt-get install -y git-core curl
-RUN apt-get install -y awscli
 
 # install Re:VIEW environment
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
       texlive-lang-japanese texlive-fonts-recommended texlive-latex-extra lmodern fonts-lmodern tex-gyre fonts-texgyre texlive-pictures \
-      ghostscript gsfonts zip ruby-zip ruby-nokogiri mecab ruby-mecab mecab-ipadic-utf8 poppler-data cm-super \
-      graphviz gnuplot python-blockdiag python-aafigure && \
+      ghostscript gsfonts zip ruby-zip ruby-nokogiri mecab ruby-mecab mecab-ipadic-utf8 poppler-data cm-super && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 ## if you want to use ipa font instead of noto font, use this settings
@@ -40,7 +37,7 @@ RUN apt-get update && \
       gnupg && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-RUN curl -sL https://deb.nodesource.com/setup_${NODEJS_VERSION}.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_${NODEJS_VERSION}.x | bash - 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
       nodejs && \
