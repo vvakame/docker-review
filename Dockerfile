@@ -1,5 +1,5 @@
 FROM debian:stretch-slim
-LABEL maintainer="vvakame@gmail.com"
+LABEL maintainer="cattaka@mail.cattaka.net"
 
 ENV REVIEW_VERSION 2.5.0
 ENV REVIEW_PEG_VERSION 0.2.2
@@ -15,6 +15,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
 RUN locale-gen en_US.UTF-8 && update-locale en_US.UTF-8
+RUN apt-get install -y git-core curl
 
 # install Re:VIEW environment
 RUN apt-get update && \
@@ -38,7 +39,7 @@ RUN apt-get update && \
       gnupg && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-RUN curl -sL https://deb.nodesource.com/setup_${NODEJS_VERSION}.x | bash - 
+RUN curl -sL https://deb.nodesource.com/setup_${NODEJS_VERSION}.x | bash -
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
       nodejs && \
@@ -61,3 +62,16 @@ RUN texhash && kanji-config-updmap-sys noto
 
 ## set cache folder to work folder (disabled by default)
 # RUN mkdir -p /etc/texmf/texmf.d && echo "TEXMFVAR=/work/.texmf-var" > /etc/texmf/texmf.d/99local.cnf
+
+# Add special packages by cattaka
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    make ruby2.3-dev gcc libstdc++-6-dev && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+ENV MD2REVIEW_VERSION 1.12.0
+ENV REDCARPET_VERSION 3.4.0
+ENV RUBYZIP_VERSION 1.2.1
+RUN gem install md2review -v "$MD2REVIEW_VERSION" --no-rdoc --no-ri && \
+    gem install redcarpet -v "$REDCARPET_VERSION" --no-rdoc --no-ri && \
+    gem install rubyzip -v "$RUBYZIP_VERSION" --no-rdoc --no-ri
