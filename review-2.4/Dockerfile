@@ -1,5 +1,5 @@
 FROM debian:stretch-slim
-LABEL maintainer="vvakame@gmail.com"
+LABEL maintainer="cattaka@mail.cattaka.net"
 
 ENV REVIEW_VERSION 2.4.0
 ENV REVIEW_PEG_VERSION 0.2.2
