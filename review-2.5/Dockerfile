@@ -46,12 +46,9 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     npm install -g yarn
 
-## NOTE noto serif is experimental. can't install via fonts-noto-cjk now.
-#RUN echo "deb http://ftp.jp.debian.org/debian/ stretch-backports main" >> /etc/apt/sources.list
-#RUN apt-get update && apt-get -y install fonts-noto-cjk/stretch-backports
-RUN curl -o /tmp/noto.deb https://kmuto.jp/debian/noto/fonts-noto-cjk_1.004+repack3-1~exp1_all.deb && \
-    dpkg -i /tmp/noto.deb && \
-    rm /tmp/noto.deb
+# install noto font from backports
+RUN echo "deb http://ftp.jp.debian.org/debian/ stretch-backports main" >> /etc/apt/sources.list
+RUN apt-get update && apt-get -y install fonts-noto-cjk/stretch-backports
 
 ## install font map of noto for dvipdfmx
 COPY noto/ /usr/share/texlive/texmf-dist/fonts/map/dvipdfmx/ptex-fontmaps/noto/
