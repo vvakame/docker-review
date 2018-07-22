@@ -1,6 +1,6 @@
 # WindowsでDocker+Re:VIEWを使う
 
-本ドキュメントでは、Windows上で「Windows Subsystem for Linux（以下、WSLと呼称）」と「Re:VIEW image for Docker」を利用し、Re:VIEWドキュメントからPDFおよびEPUBを生成する方法を紹介します。
+本ドキュメントでは、Windows上で「Windows Subsystem for Linux」と「Re:VIEW image for Docker」を利用し、Re:VIEWドキュメントからPDFおよびEPUBを生成する方法を紹介します。
 
 ## 必要なもの
 * **Microsoft Windows**。本ドキュメントはWindows 10 Homeエディションに基づいています。
