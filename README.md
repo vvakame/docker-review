@@ -10,8 +10,8 @@
 
 [Docker Hub](https://hub.docker.com/r/vvakame/review/)にTrusted Buildとして置いてあるのでご活用ください。
 
-Windows用の手引は[こちら](https://github.com/vvakame/docker-review/blob/master/doc/windows-review.md)を参考にしてください。
-docker-composeを使った時の手引としても使えます。
+Windows用の手引は[こちら](./doc/windows10-2018-review.md)を参考にしてください。
+docker-composeを使う場合は、[こちら](https://github.com/vvakame/docker-review/blob/master/doc/windows-review.md)を参照してください。
 
 ## 仕様
 
