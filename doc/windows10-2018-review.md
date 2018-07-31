@@ -256,7 +256,7 @@ sudo docker run --rm -v `pwd`/articles:/work vvakame/review:2.5 /bin/sh -c "cd /
 
 ### コマンドの詳細
 
-dockerコマンドの詳細については[https://docs.docker.com/https://docs.docker.com/engine/reference/commandline/cli/](https://docs.docker.com/engine/reference/commandline/cli/)などを、参照してください。
+dockerコマンドの詳細については[https://docs.docker.com/engine/reference/commandline/cli/](https://docs.docker.com/engine/reference/commandline/cli/)などを、参照してください。
 
 reviewコマンドは、[https://github.com/kmuto/review/](https://github.com/kmuto/review/)などを、参照してください。
 
