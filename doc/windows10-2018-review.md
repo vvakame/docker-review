@@ -72,17 +72,9 @@ sudo service docker start
 ```
 ![Docker for Ubuntuの取得](windows-img/win10-docker-review1-start.png)
 
-dockerがインストールされ、デーモン (daemon)が起動します。本設定は初回のみ実施し、2回目以降は必要ありません。2回目以降の動作に準拠するため、一旦「exit」でUbuntu on WSLを終了します。
+dockerがインストールされ、デーモン (daemon)が起動します。本設定は初回のみ実施し、2回目以降は必要ありません。
 
-2回目以降は、以下の操作でDockerデーモンを起動します。
-1. Ubuntu on WSLを管理者権限で起動する。
-2. Ubuntuのコマンドライン（ターミナル）上で、以下のコマンド実行する。
-
-```
-sudo cgroupfs-mount && sudo service docker start
-```
-
-dockder が正しくセットアップされたの確認のため、Hello Worldのイメージを起動してみます。
+dockder が正しくセットアップされたの確認のため、以下のコマンドを実行してHello Worldのイメージを起動してみます。
 
 ```
 sudo docker run hello-world
@@ -95,7 +87,7 @@ sudo docker run hello-world
 
 ## Re:VIEW image for Dockerのダウンロードと展開
 
-Re:VIEW image for Dockerの取得します。ここでは「review 2.5」を例にコマンドを例示します。上述の「Ubuntu on WSL上でDockerデーモンを起動した」状態で、以下のコマンドを実行します。
+Re:VIEW image for Dockerの取得します。ここでは「review 2.5」を例にコマンドを例示します。以下のコマンドを実行します。
 
 ```sh
 shdo docker pull vvakame/review:2.5
@@ -112,14 +104,14 @@ shdo docker pull vvakame/review:2.5
 sudo docker run --rm vvakame/review:2.5 /bin/sh -c "review version"
 ```
 
-「2.5.0」が表示されれば、Re:VIEW image for Dockerの取得と動作確認は完了です。
+「2.5.0」が表示されれば、Re:VIEW image for Dockerの取得と動作確認は完了です。一旦「exit」でUbuntu on WSLを終了してください。
 
 # Docker+Re:VIEWドキュメント制作
 
 WSL+Docker+Re:VIEW環境でのドキュメント（pdf）作成方法を紹介します。
-以下では、ドキュメントをDドライブ直下の「repo-doc」フォルダに格納すると仮定して記載します（ `D:\repo-doc\` ）。
+以下では、ドキュメントをDドライブ直下の「repo-doc」フォルダに格納すると仮定して記載します（ `D:\repo-doc\` ）。Ubuntu on WSLを起動してください（ここでは、管理者権限は**不要**）。
 
-コマンド操作は、Ubuntu on WSLのコマンドライン（コンソール）上から行ってください。Ubuntu on WSLは通常起動で構いません（管理者権限**不要**）。なお、Windowsを再起動した際は、一度だけ**管理者権限で**Ubuntu on WSLを起動し、 `sudo cgroupfs-mount && sudo service docker start` を実行して「Dockerデーモン」を起動しておいてください。その後、管理者権限で起動したコマンドラインは閉じてしまって構いません。
+※Windowsを再起動した際は、後述の「起動時にDockerデーモンを起動しておく」を再実行してください。
 
 ## reviewコマンドによるpdfファイル生成
 
