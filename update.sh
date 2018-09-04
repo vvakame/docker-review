@@ -17,5 +17,5 @@ cp -r noto review-2.5
 
 rm -rf review-3.0
 mkdir review-3.0
-cat Dockerfile | sed "s/^ENV REVIEW_VERSION .*$/ENV REVIEW_VERSION 3.0.0.preview1/" > review-3.0/Dockerfile
+cat Dockerfile | sed "s/^ENV REVIEW_VERSION .*$/ENV REVIEW_VERSION 3.0.0.preview2/" > review-3.0/Dockerfile
 cp -r noto review-3.0
