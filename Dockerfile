@@ -38,7 +38,7 @@ RUN apt-get update && \
       gnupg && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-RUN curl -sL https://deb.nodesource.com/setup_${NODEJS_VERSION}.x | bash - 
+RUN curl -sL https://deb.nodesource.com/setup_${NODEJS_VERSION}.x | bash -
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
       nodejs && \
