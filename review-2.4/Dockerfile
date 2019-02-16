@@ -1,10 +1,11 @@
 FROM debian:stretch-slim
 LABEL maintainer="vvakame@gmail.com"
 
-ENV REVIEW_VERSION=3.0.0 \
-    REVIEW_PEG_VERSION=0.2.2 \
-    NODEJS_VERSION=10 \
-    LANG=en_US.UTF-8
+ENV REVIEW_VERSION 2.4.0
+ENV REVIEW_PEG_VERSION 0.2.2
+ENV NODEJS_VERSION 10
+
+ENV LANG en_US.UTF-8
 
 # setup
 RUN apt-get update \
