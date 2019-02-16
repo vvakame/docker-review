@@ -41,17 +41,22 @@ RUN apt-get update \
     texlive-latex-extra \
     texlive-pictures \
     zip \
+## if you want to use ipa font instead of noto font, use this settings
+# && kanji-config-updmap ipaex \
+
+# setup Re:VIEW
+ && gem install bundler rake --no-rdoc --no-ri \
+ && gem install review -v "$REVIEW_VERSION" --no-rdoc --no-ri \
+ && gem install review-peg -v "$REVIEW_PEG_VERSION" --no-rdoc --no-ri \
 # install node.js environment
+ && apt-get update \
+ && apt-get install -y --no-install-recommends \
     gnupg \
  && curl -sL https://deb.nodesource.com/setup_${NODEJS_VERSION}.x | bash - \
  && apt-get update \
  && apt-get install -y --no-install-recommends \
     nodejs \
  && npm install -g yarn \
-# setup Re:VIEW
- && gem install bundler rake --no-rdoc --no-ri \
- && gem install review -v "$REVIEW_VERSION" --no-rdoc --no-ri \
- && gem install review-peg -v "$REVIEW_PEG_VERSION" --no-rdoc --no-ri \
 # install noto font from backports
  && echo "deb http://ftp.jp.debian.org/debian/ stretch-backports main" >> /etc/apt/sources.list \
  && apt-get update \
@@ -60,9 +65,6 @@ RUN apt-get update \
     fonts-noto-cjk/stretch-backports \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
-
-## if you want to use ipa font instead of noto font, use this settings
-# RUN kanji-config-updmap ipaex
 
 ## install font map of noto for dvipdfmx
 COPY noto/ /usr/share/texlive/texmf-dist/fonts/map/dvipdfmx/ptex-fontmaps/noto/
