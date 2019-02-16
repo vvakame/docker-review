@@ -43,7 +43,7 @@ RUN apt-get update \
     zip \
 ## if you want to use ipa font instead of noto font, use this settings
 # && kanji-config-updmap ipaex \
-
+#
 # setup Re:VIEW
  && gem install bundler rake --no-rdoc --no-ri \
  && gem install review -v "$REVIEW_VERSION" --no-rdoc --no-ri \
