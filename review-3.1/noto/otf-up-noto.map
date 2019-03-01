@@ -1,0 +1,33 @@
+
+% TEXT, 90JIS
+uphminl-v	UniJIS-UTF16-V	ipaexm.ttf %!PS IPAexMincho
+uphminr-v	UniJIS-UTF16-V	ipaexm.ttf %!PS IPAexMincho
+uphminb-v	UniJIS-UTF16-V	ipaexm.ttf %!PS IPAexMincho
+uphgothr-v	UniJIS-UTF16-V	ipaexg.ttf %!PS IPAexGothic
+uphgothb-v	UniJIS-UTF16-V	ipaexg.ttf %!PS IPAexGothic
+uphgotheb-v	UniJIS-UTF16-V	ipaexg.ttf %!PS IPAexGothic
+uphmgothr-v	UniJIS-UTF16-V	ipaexg.ttf %!PS IPAexGothic
+uphminl-h unicode NotoSerifCJK-Light.ttc
+uphminr-h unicode NotoSerifCJK-Regular.ttc
+uphminb-h unicode NotoSerifCJK-Bold.ttc
+uphgothl-h unicode NotoSansCJK-Light.ttc
+uphgothr-h unicode NotoSansCJK-Regular.ttc
+uphgothb-h unicode NotoSansCJK-Bold.ttc
+uphgotheb-h unicode NotoSansCJK-Black.ttc
+uphmgothr-h unicode NotoSansCJK-Black.ttc
+
+% TEXT, JIS04
+uphminln-h	UniJIS2004-UTF16-H	ipaexm.ttf %!PS IPAexMincho
+uphminln-v	UniJIS2004-UTF16-V	ipaexm.ttf %!PS IPAexMincho
+uphminrn-h	UniJIS2004-UTF16-H	ipaexm.ttf %!PS IPAexMincho
+uphminrn-v	UniJIS2004-UTF16-V	ipaexm.ttf %!PS IPAexMincho
+uphminbn-h	UniJIS2004-UTF16-H	ipaexm.ttf %!PS IPAexMincho
+uphminbn-v	UniJIS2004-UTF16-V	ipaexm.ttf %!PS IPAexMincho
+uphgothrn-h	UniJIS2004-UTF16-H	ipaexg.ttf %!PS IPAexGothic
+uphgothrn-v	UniJIS2004-UTF16-V	ipaexg.ttf %!PS IPAexGothic
+uphgothbn-h	UniJIS2004-UTF16-H	ipaexg.ttf %!PS IPAexGothic
+uphgothbn-v	UniJIS2004-UTF16-V	ipaexg.ttf %!PS IPAexGothic
+uphgothebn-h	UniJIS2004-UTF16-H	ipaexg.ttf %!PS IPAexGothic
+uphgothebn-v	UniJIS2004-UTF16-V	ipaexg.ttf %!PS IPAexGothic
+uphmgothrn-h	UniJIS2004-UTF16-H	ipaexg.ttf %!PS IPAexGothic
+uphmgothrn-v	UniJIS2004-UTF16-V	ipaexg.ttf %!PS IPAexGothic
