@@ -178,6 +178,27 @@ book.epubというEPUBファイルが生成されるので、Google Chromeブラ
 
 このように、同じコンテンツからPDFとEPUBという2つの形式のファイルを作成できました！
 
+## 特定のバージョンの指定
+
+Re:VIEWイメージの特定バージョンを使用するには、Dockerfileをたとえば以下のようにします（ここではタグ名「3.1」が打たれているイメージを使うことになります）。
+
+```
+FROM vvakame/review:3.1
+```
+
+ただ、Dockerfileの指定でうまくいかなかったというケースもあるようです。そのようなときは、docker-compose.ymlのimageパラメータにイメージ名を明示指定してみてください。
+
+```
+version: '3'
+services:
+  review:
+    image: vvakame/review:3.1
+    volumes:
+      - .:/work
+    build: .
+    working_dir: /work
+```
+
 ## その他のコマンド
 docker-composeコマンドの詳細については、[https://docs.docker.com/compose/](https://docs.docker.com/compose/)などを参照してください。
 
