@@ -19,7 +19,7 @@ RUN locale-gen en_US.UTF-8 && update-locale en_US.UTF-8
 # install Re:VIEW environment
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-      texlive-lang-japanese texlive-fonts-recommended texlive-latex-extra lmodern fonts-lmodern tex-gyre fonts-texgyre texlive-pictures \
+      texlive-lang-japanese texlive-fonts-recommended texlive-latex-extra lmodern fonts-lmodern tex-gyre fonts-texgyre texlive-pictures texlive-plain-generic \
       ghostscript gsfonts zip ruby-zip ruby-nokogiri mecab ruby-mecab mecab-ipadic-utf8 poppler-data cm-super \
       graphviz gnuplot python-blockdiag python-aafigure && \
     apt-get clean && \
