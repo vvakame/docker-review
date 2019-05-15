@@ -1,4 +1,4 @@
-FROM debian:buster-slim
+FROM debian:stretch-slim
 LABEL maintainer="vvakame@gmail.com"
 
 ENV REVIEW_VERSION 3.1.0
@@ -46,8 +46,9 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     npm install -g yarn
 
-# install noto font
-RUN apt-get update && apt-get -y install fonts-noto-cjk-extra
+# install noto font from backports
+RUN echo "deb http://ftp.jp.debian.org/debian/ stretch-backports main" >> /etc/apt/sources.list
+RUN apt-get update && apt-get -y install fonts-noto-cjk/stretch-backports fonts-noto-cjk-extra/stretch-backports
 
 ## install font map of noto for dvipdfmx
 COPY noto/ /usr/share/texlive/texmf-dist/fonts/map/dvipdfmx/ptex-fontmaps/noto/
