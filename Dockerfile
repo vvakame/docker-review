@@ -50,10 +50,10 @@ RUN apt-get update && \
 RUN apt-get update && apt-get -y install fonts-noto-cjk-extra
 
 ## install font map of noto for dvipdfmx
-COPY noto/ /usr/share/texlive/texmf-dist/fonts/map/dvipdfmx/ptex-fontmaps/noto/
+COPY noto-otc/ /usr/share/texlive/texmf-dist/fonts/map/dvipdfmx/ptex-fontmaps/noto-otc/
 
 ## use noto for uplatex
-RUN texhash && kanji-config-updmap-sys noto
+RUN texhash && kanji-config-updmap-sys noto-otc
 
 ## set cache folder to work folder (disabled by default)
 # RUN mkdir -p /etc/texmf/texmf.d && echo "TEXMFVAR=/work/.texmf-var" > /etc/texmf/texmf.d/99local.cnf
