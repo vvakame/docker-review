@@ -18,7 +18,7 @@ docker-composeを使った時の手引としても使えます。
 ### サポートしているタグ
 
 Re:VIEWのバージョン毎にイメージを作成しています。
-現在存在しているタグは `latest`, `2.3`, `2.4` , `2.5`, `3.0`, `3.1` です。
+現在存在しているタグは `latest`, `2.3`, `2.4` , `2.5`, `3.0`, `3.1`, `3.2` です。
 
 ```
 $ docker pull vvakame/review:2.3
@@ -26,6 +26,7 @@ $ docker pull vvakame/review:2.4
 $ docker pull vvakame/review:2.5
 $ docker pull vvakame/review:3.0
 $ docker pull vvakame/review:3.1
+$ docker pull vvakame/review:3.2
 ```
 
 ### インストールされているコマンド
