@@ -21,6 +21,7 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
       texlive-lang-japanese texlive-fonts-recommended texlive-latex-extra lmodern fonts-lmodern tex-gyre fonts-texgyre texlive-pictures texlive-plain-generic \
       ghostscript gsfonts zip ruby-zip ruby-nokogiri mecab ruby-mecab mecab-ipadic-utf8 poppler-data cm-super \
+      ruby-dev build-essential \
       graphviz gnuplot python-blockdiag python-aafigure && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
