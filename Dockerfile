@@ -19,10 +19,12 @@ RUN locale-gen en_US.UTF-8 && update-locale en_US.UTF-8
 # install Re:VIEW environment
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-      texlive-lang-japanese texlive-fonts-recommended texlive-latex-extra lmodern fonts-lmodern tex-gyre fonts-texgyre texlive-pictures texlive-plain-generic \
-      ghostscript gsfonts zip ruby-zip ruby-nokogiri mecab ruby-mecab mecab-ipadic-utf8 poppler-data cm-super \
-      ruby-dev build-essential \
+      texlive-lang-japanese texlive-fonts-recommended texlive-latex-extra lmodern fonts-lmodern cm-super tex-gyre fonts-texgyre texlive-pictures texlive-plain-generic \
+      ghostscript gsfonts \
+      zip ruby-zip \
+      ruby-nokogiri mecab ruby-mecab mecab-ipadic-utf8 poppler-data \
       graphviz gnuplot python-blockdiag python-aafigure \
+      ruby-dev build-essential \
       mecab-jumandic- mecab-jumandic-utf8- && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
@@ -40,7 +42,7 @@ RUN apt-get update && \
       gnupg && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-RUN curl -sL https://deb.nodesource.com/setup_${NODEJS_VERSION}.x | bash - 
+RUN curl -sL https://deb.nodesource.com/setup_${NODEJS_VERSION}.x | bash -
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
       nodejs && \
