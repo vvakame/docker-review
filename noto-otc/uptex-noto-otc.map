@@ -1,0 +1,10 @@
+urml	unicode	:0:NotoSerifCJK-Regular.ttc -l jp90 %!DVIPSFB !Ryumin-Light-UniJIS-UTF16-H
+urmlv	unicode	:0:NotoSerifCJK-Regular.ttc -w 1 -l jp90 %!DVIPSFB !Ryumin-Light-UniJIS-UTF16-V
+ugbm	unicode	:0:NotoSansCJK-Medium.ttc -l jp90 %!DVIPSFB !GothicBBB-Medium-UniJIS-UTF16-H
+ugbmv	unicode	:0:NotoSansCJK-Medium.ttc -w 1 -l jp90 %!DVIPSFB !GothicBBB-Medium-UniJIS-UTF16-V
+uprml-h	unicode	:0:NotoSerifCJK-Regular.ttc -l jp90 %!DVIPSFB !Ryumin-Light-UniJIS-UTF16-H
+uprml-v	unicode	:0:NotoSerifCJK-Regular.ttc -w 1 -l jp90 %!DVIPSFB !Ryumin-Light-UniJIS-UTF16-V
+upgbm-h	unicode	:0:NotoSansCJK-Medium.ttc -l jp90 %!DVIPSFB !GothicBBB-Medium-UniJIS-UTF16-H
+upgbm-v	unicode	:0:NotoSansCJK-Medium.ttc -w 1 -l jp90 %!DVIPSFB !GothicBBB-Medium-UniJIS-UTF16-V
+uprml-hq	unicode	:0:NotoSerifCJK-Regular.ttc -l fwid %!DVIPSFB !Ryumin-Light-UniJIS-UCS2-H
+upgbm-hq	unicode	:0:NotoSansCJK-Medium.ttc -l fwid %!DVIPSFB !GothicBBB-Medium-UniJIS-UCS2-H
