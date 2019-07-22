@@ -18,12 +18,10 @@ docker-composeを使った時の手引としても使えます。
 ### サポートしているタグ
 
 Re:VIEWのバージョン毎にイメージを作成しています。
-現在存在しているタグは `latest`, `2.3`, `2.4` , `2.5`, `3.0`, `3.1`, `3.2` です。
+現在存在しているタグは `latest`, `3.0`, `3.1`, `3.2` です。
+`2.3`, `2.4` , `2.5` も存在していますが、サポートは終了しています。
 
 ```
-$ docker pull vvakame/review:2.3
-$ docker pull vvakame/review:2.4
-$ docker pull vvakame/review:2.5
 $ docker pull vvakame/review:3.0
 $ docker pull vvakame/review:3.1
 $ docker pull vvakame/review:3.2
@@ -36,7 +34,7 @@ $ docker pull vvakame/review:3.2
 * texlive & 日本語環境
 * mecab （Re:VIEW 索引作成時に利用される）
 * ruby （Re:VIEW 実行環境）
-* node.js & npm （[FirstStepReVIEW v2](https://github.com/TechBooster/C89-FirstStepReVIEW-v2)用環境）
+* Node.js & npm （[ReVIEW-Template](https://github.com/TechBooster/ReVIEW-Template)用環境）
 * Re:VIEW & rake & bundler
 
 他。詳細は[Dockerfile](https://github.com/vvakame/docker-review/blob/master/Dockerfile)を参照してください。
