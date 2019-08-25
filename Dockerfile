@@ -22,7 +22,7 @@ RUN apt-get update && \
       texlive-lang-japanese texlive-fonts-recommended texlive-latex-extra lmodern fonts-lmodern cm-super tex-gyre fonts-texgyre texlive-pictures texlive-plain-generic \
       ghostscript gsfonts \
       zip ruby-zip \
-      ruby-nokogiri mecab ruby-mecab mecab-ipadic-utf8 poppler-data \
+      ruby-nokogiri mecab ruby-mecab mecab-ipadic-utf8 poppler-utils poppler-data \
       graphviz gnuplot python-blockdiag python-aafigure \
       ruby-dev build-essential \
       mecab-jumandic- mecab-jumandic-utf8- && \
