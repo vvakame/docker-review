@@ -22,10 +22,11 @@ RUN apt-get update && \
       texlive-lang-japanese texlive-fonts-recommended texlive-latex-extra lmodern fonts-lmodern cm-super tex-gyre fonts-texgyre texlive-pictures texlive-plain-generic \
       ghostscript gsfonts \
       zip ruby-zip \
-      ruby-nokogiri mecab ruby-mecab mecab-ipadic-utf8 poppler-utils poppler-data \
+      ruby-nokogiri mecab ruby-mecab mecab-ipadic-utf8 poppler-data \
       graphviz gnuplot python-blockdiag python-aafigure \
       ruby-dev build-essential \
-      mecab-jumandic- mecab-jumandic-utf8- && \
+      mecab-jumandic- mecab-jumandic-utf8- \
+      texlive-extra-utils poppler-utils && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 ## if you want to use ipa font instead of noto font, use this settings
