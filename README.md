@@ -41,11 +41,15 @@ $ docker pull vvakame/review:3.2
 
 ## TeX周りの初期設定
 
-PDF作成時、Notoフォントをデフォルトで利用しフォントの埋め込みも行うようになっています。
+PDF作成時、原の味フォントをデフォルトで利用し、フォントの埋め込みも行うようになっています。
 
 * [IPAフォント](http://ipafont.ipa.go.jp/)のインストール
   * 利用したい場合 `kanji-config-updmap ipaex` を実行する
-* [Notoフォント](https://www.google.com/get/noto/)のインストール & デフォルト利用指定
+* [Notoフォント](https://www.google.com/get/noto/)のインストール
+  * 利用したい場合 `kanji-config-updmap noto-otc` を実行する
+* [原の味フォント](https://github.com/trueroad/HaranoAjiFonts)のインストール & デフォルト利用指定
+
+原の味 (Harano Aji) フォントは、源ノ明朝・源ノ角ゴシックを字形はそのまま、TeXで扱いやすいAdobe-Japan1のテーブルに組み替えたものです。
 
 ## 使い方
 

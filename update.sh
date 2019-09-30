@@ -11,5 +11,6 @@ do
     rm -rf ${dir_name}
     mkdir ${dir_name}
     cat Dockerfile | sed "s/^ENV REVIEW_VERSION .*$/ENV REVIEW_VERSION ${version}/" > ${dir_name}/Dockerfile
+    cp -r haranoaji ${dir_name}
     cp -r noto-otc ${dir_name}
 done
