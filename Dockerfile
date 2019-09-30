@@ -51,6 +51,17 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     npm install -g yarn
 
+# install noto font
+RUN apt-get update && apt-get -y install fonts-noto-cjk-extra && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+## install font map of noto for dvipdfmx
+COPY noto-otc/ /usr/share/texlive/texmf-dist/fonts/map/dvipdfmx/ptex-fontmaps/noto-otc/
+
+## if you want to use noto font instead of haranoaji font, use this settings
+# RUN texhash && kanji-config-updmap-sys noto-otc
+
 # install haranoaji font
 RUN mkdir -p /usr/local/share/texmf/fonts/opentype && \
     curl -L -s -o /usr/local/share/texmf/fonts/opentype/haranoaji.zip https://github.com/trueroad/HaranoAjiFonts/archive/20190824.zip && \

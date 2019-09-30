@@ -1,0 +1,12 @@
+
+% CID
+otf-ccmr-h	Identity-H	!STSong-Light
+otf-ccmr-v	Identity-V	!STSong-Light
+otf-ccgr-h	Identity-H	!STHeiti-Regular
+otf-ccgr-v	Identity-V	!STHeiti-Regular
+
+% Unicode
+otf-ucmr-h	unicode	:2:NotoSerifCJK-Regular.ttc %!DVIPSFB !STSong-Light-UniGB-UCS2-H
+otf-ucmr-v	unicode	:2:NotoSerifCJK-Regular.ttc -w 1 %!DVIPSFB !STSong-Light-UniGB-UCS2-V
+otf-ucgr-h	unicode	:2:NotoSansCJK-Medium.ttc %!DVIPSFB !STHeiti-Regular-UniGB-UCS2-H
+otf-ucgr-v	unicode	:2:NotoSansCJK-Medium.ttc -w 1 %!DVIPSFB !STHeiti-Regular-UniGB-UCS2-V
