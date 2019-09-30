@@ -5,6 +5,8 @@ ENV REVIEW_VERSION 3.2.0
 ENV REVIEW_PEG_VERSION 0.2.2
 ENV NODEJS_VERSION 10
 
+ENV HARANOAJI_VERSION 20190824
+
 ENV LANG en_US.UTF-8
 
 # setup
@@ -60,11 +62,12 @@ RUN apt-get update && apt-get -y install fonts-noto-cjk-extra && \
 COPY noto-otc/ /usr/share/texlive/texmf-dist/fonts/map/dvipdfmx/ptex-fontmaps/noto-otc/
 
 ## if you want to use noto font instead of haranoaji font, use this settings
-# RUN texhash && kanji-config-updmap-sys noto-otc
+# RUN kanji-config-updmap-sys noto-otc
 
 # install haranoaji font
 RUN mkdir -p /usr/local/share/texmf/fonts/opentype && \
-    curl -L -s -o /usr/local/share/texmf/fonts/opentype/haranoaji.zip https://github.com/trueroad/HaranoAjiFonts/archive/20190824.zip && \
+    curl -L -s -o /usr/local/share/texmf/fonts/opentype/haranoaji.zip \
+      https://github.com/trueroad/HaranoAjiFonts/archive/${HARANOAJI_VERSION}.zip && \
     cd /usr/local/share/texmf/fonts/opentype && \
     unzip -q haranoaji.zip && \
     rm haranoaji.zip
