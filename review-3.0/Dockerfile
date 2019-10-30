@@ -5,6 +5,8 @@ ENV REVIEW_VERSION 3.0.0
 ENV REVIEW_PEG_VERSION 0.2.2
 ENV NODEJS_VERSION 10
 
+ENV HARANOAJI_VERSION 20190824
+
 ENV LANG en_US.UTF-8
 
 # setup
@@ -29,7 +31,7 @@ RUN apt-get update && \
       texlive-extra-utils poppler-utils && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-## if you want to use ipa font instead of noto font, use this settings
+## if you want to use ipa font instead of haranoaji font, use this settings
 # RUN kanji-config-updmap ipaex
 
 # setup Re:VIEW
@@ -59,8 +61,22 @@ RUN apt-get update && apt-get -y install fonts-noto-cjk-extra && \
 ## install font map of noto for dvipdfmx
 COPY noto-otc/ /usr/share/texlive/texmf-dist/fonts/map/dvipdfmx/ptex-fontmaps/noto-otc/
 
-## use noto for uplatex
-RUN texhash && kanji-config-updmap-sys noto-otc
+## if you want to use noto font instead of haranoaji font, use this settings
+# RUN kanji-config-updmap-sys noto-otc
+
+# install haranoaji font
+RUN mkdir -p /usr/local/share/texmf/fonts/opentype && \
+    curl -L -s -o /usr/local/share/texmf/fonts/opentype/haranoaji.zip \
+      https://github.com/trueroad/HaranoAjiFonts/archive/${HARANOAJI_VERSION}.zip && \
+    cd /usr/local/share/texmf/fonts/opentype && \
+    unzip -q haranoaji.zip && \
+    rm haranoaji.zip
+
+## install font map of haranoaji for dvipdfmx
+COPY haranoaji/ /usr/share/texlive/texmf-dist/fonts/map/dvipdfmx/ptex-fontmaps/haranoaji/
+
+## use haranoaji for uplatex
+RUN texhash && kanji-config-updmap-sys haranoaji
 
 ## set cache folder to work folder (disabled by default)
 # RUN mkdir -p /etc/texmf/texmf.d && echo "TEXMFVAR=/work/.texmf-var" > /etc/texmf/texmf.d/99local.cnf
