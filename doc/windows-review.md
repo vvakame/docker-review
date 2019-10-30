@@ -86,6 +86,8 @@ services:
       - .:/work
     build: .
     working_dir: /work
+    ports:
+      - "127.0.0.1:18000:18000"
 ```
 
 docker-compose.ymlの行頭インデントの違いは重要です。本ドキュメントからコピーペーストして使ってもよいでしょう。
@@ -116,11 +118,12 @@ workフォルダ内（`cd ~/Documents/work`をした状態）で、docker-compos
 review-initコマンドはRe:VIEWドキュメントの雛型を作るコマンドです。新規に「sampledoc」を作ってみましょう。Docker経由で呼び出すには、Dockerターミナルで次のように実行します。
 
 ```
-docker-compose run review review-init sampledoc
+docker-compose run --rm review review-init sampledoc
 ```
 
 * 「docker-compose」は「docker-compose.exe」としても構いません。「docker-」と入力してTabキーを押せば補完されるでしょう。
 * 「run」はDockerコンテナで指定のコマンドを実行して終了する、という指令です。
+* 「--rm」は終了後にコンテナを削除するオプションです。
 * 「review」が使用するDockerイメージとなります。
 * 「review-init sampledoc」がDockerコンテナの上で実行されるRe:VIEWコマンドです。sampledocという名前の新規フォルダを作業フォルダ（work）内に作り、Re:VIEWドキュメントに必要な初期ファイル群を展開します。
 
@@ -151,7 +154,7 @@ cd ~/Documents/work/sampledoc
 PDFを生成するためには次のようにDockerターミナルで実行します。
 
 ```
-docker-compose run review rake pdf
+docker-compose run --rm review rake pdf
 ```
 
 「rake pdf」がPDFを生成するコマンドです（内部では`review-pdfmaker config.yml`というRe:VIEWコマンドが呼び出されています）。
@@ -167,7 +170,7 @@ sampledoc.reにエラーがなければ、sampledocフォルダにbook.pdfとい
 EPUBを生成するのもほぼ同じで、次のようにDockerターミナルで実行します。「rake epub」がEPUBを生成するコマンドです（内部では`review-epubmaker config.yml`が呼び出されます）。
 
 ```
-docker-compose run review rake epub
+docker-compose run --rm review rake epub
 ```
 
 book.epubというEPUBファイルが生成されるので、Google Chromeブラウザの拡張機能である[Readium](http://readium.org/)でこのファイルを開いてみます。
@@ -180,10 +183,10 @@ book.epubというEPUBファイルが生成されるので、Google Chromeブラ
 
 ## 特定のバージョンの指定
 
-Re:VIEWイメージの特定バージョンを使用するには、Dockerfileをたとえば以下のようにします（ここではタグ名「3.1」が打たれているイメージを使うことになります）。
+Re:VIEWイメージの特定バージョンを使用するには、Dockerfileをたとえば以下のようにします（ここではタグ名「4.0」が打たれているイメージを使うことになります）。
 
 ```
-FROM vvakame/review:3.1
+FROM vvakame/review:4.0
 ```
 
 ただ、Dockerfileの指定でうまくいかなかったというケースもあるようです。そのようなときは、docker-compose.ymlのimageパラメータにイメージ名を明示指定してみてください。
@@ -192,7 +195,7 @@ FROM vvakame/review:3.1
 version: '3'
 services:
   review:
-    image: vvakame/review:3.1
+    image: vvakame/review:4.0
     volumes:
       - .:/work
     build: .
@@ -215,3 +218,12 @@ networks:
     external:
       name: bridge
 ```
+
+## GUIによる紙面レイアウト
+Re:VIEW 4.0以降では、Re:VIEWドキュメントの雛型作成時に、WebインターフェイスでTeXの紙面レイアウトが可能です。これにはreview-initコマンドの実行時に`-w`オプションを付けます。また、Dockerコンテナ内とホストとのポートの結び付けをdocker-compose runの実行でも有効にするために`--service-ports`オプションも指定します。
+
+```
+docker-compose run --rm --service-ports review review-init -w sampledoc
+```
+
+Webブラウザで`http://localhost:18000`を開くと、紙面レイアウトを設定できます。

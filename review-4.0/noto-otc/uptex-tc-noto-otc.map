@@ -1,0 +1,4 @@
+upmsl-h	unicode	:3:NotoSerifCJK-Regular.ttc %!DVIPSFB !MSung-Light-UniCNS-UTF16-H
+upmsl-v	unicode	:3:NotoSerifCJK-Regular.ttc -w 1 %!DVIPSFB !MSung-Light-UniCNS-UTF16-V
+upmhm-h	unicode	:3:NotoSansCJK-Medium.ttc %!DVIPSFB !MHei-Medium-UniCNS-UTF16-H
+upmhm-v	unicode	:3:NotoSansCJK-Medium.ttc -w 1 %!DVIPSFB !MHei-Medium-UniCNS-UTF16-V
