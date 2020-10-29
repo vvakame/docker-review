@@ -7,6 +7,9 @@ on:
   # Run tests for each PRs.
   pull_request: {}
 
+env:
+  IMAGE_ID: ghcr.io/${{ github.repository_owner }}/review
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -19,9 +22,6 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
-    env:
-      IMAGE_ID: ghcr.io/${{ github.repository_owner }}/review
-      LATEST_VERSION: "4.2"
     strategy:
       matrix:
         version:
@@ -36,7 +36,7 @@ jobs:
 
       - name: Build image
         run: |
-          docker build . --file ${{ matrix.version }}/Dockerfile --tag $IMAGE_ID:${{ matrix.version }}
+          cd "review-${{ matrix.version }}" && docker build . --tag $IMAGE_ID:${{ matrix.version }}
 
       - name: Log into GitHub Container Registry
         run: echo "${{ secrets.DOCKER_CR_PAT }}" | docker login https://ghcr.io -u ${{ github.actor }} --password-stdin
@@ -45,10 +45,22 @@ jobs:
         run: |
           echo version=${{ matrix.version }}
           docker push $IMAGE_ID:${{ matrix.version }}
+
+  # 最後にpushされたものにlatestが更新されるので他のタグ付きと分ける ついでにビルドもし直していいでしょ…
+  push_latest:
+    needs: push
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build image
+        run: |
+          docker build . --tag $IMAGE_ID:latest
+
+      - name: Log into GitHub Container Registry
+        run: echo "${{ secrets.DOCKER_CR_PAT }}" | docker login https://ghcr.io -u ${{ github.actor }} --password-stdin
       
       - name: Push latest image to GitHub Container Registry
-        if: ${{ matrix.version }} == ${{ env.LATEST_VERSION }}
         run: |
-          echo version=${{ matrix.version }}
-          docker tag $IMAGE_ID:${{ matrix.version }} $IMAGE_ID:latest
           docker push $IMAGE_ID:latest

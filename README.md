@@ -9,6 +9,7 @@
 このリポジトリは[Docker](https://www.docker.com/)上で[Re:VIEW](https://github.com/kmuto/review/)を動かすためのものです。
 
 [Docker Hub](https://hub.docker.com/r/vvakame/review/)にTrusted Buildとして置いてあるのでご活用ください。
+試験的に[GitHub Container Registry](https://github.com/users/vvakame/packages/container/package/review)にも置いてあります。
 
 Windows用の手引は[こちら](https://github.com/vvakame/docker-review/blob/master/doc/windows-review.md)を参考にしてください。
 docker-composeを使った時の手引としても使えます。
@@ -18,16 +19,25 @@ docker-composeを使った時の手引としても使えます。
 ### サポートしているタグ
 
 Re:VIEWのバージョン毎にイメージを作成しています。
-現在存在しているタグは `latest`, `3.0`, `3.1`, `3.2`, `4.0`, '4.1', '4.2' です。
-`2.3`, `2.4` , `2.5` も存在していますが、サポートは終了しています。
+現在存在しているタグは `latest`, `3.0`, `3.1`, `3.2`, `4.0`, `4.1`, `4.2` です。
+`2.3`, `2.4` , `2.5` もDocker Hub上に存在していますが、サポートは終了しています。
 
 ```
 $ docker pull vvakame/review:4.2
 $ docker pull vvakame/review:4.1
 $ docker pull vvakame/review:4.0
-$ docker pull vvakame/review:3.0
-$ docker pull vvakame/review:3.1
 $ docker pull vvakame/review:3.2
+$ docker pull vvakame/review:3.1
+$ docker pull vvakame/review:3.0
+```
+
+```
+$ docker pull ghcr.io/vvakame/review:4.2
+$ docker pull ghcr.io/vvakame/review:4.1
+$ docker pull ghcr.io/vvakame/review:4.0
+$ docker pull ghcr.io/vvakame/review:3.2
+$ docker pull ghcr.io/vvakame/review:3.1
+$ docker pull ghcr.io/vvakame/review:3.0
 ```
 
 ### インストールされているコマンド
