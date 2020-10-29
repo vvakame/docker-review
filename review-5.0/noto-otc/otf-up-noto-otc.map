@@ -1,0 +1,32 @@
+
+% TEXT, 90JIS
+uphminl-h	unicode	:0:NotoSerifCJK-Light.ttc -l jp90 %!DVIPSFB !Ryumin-Light-UniJIS-UTF16-H
+uphminl-v	unicode	:0:NotoSerifCJK-Light.ttc -w 1 -l jp90 %!DVIPSFB !Ryumin-Light-UniJIS-UTF16-V
+uphminr-h	unicode	:0:NotoSerifCJK-Regular.ttc -l jp90 %!DVIPSFB !Ryumin-Light-UniJIS-UTF16-H
+uphminr-v	unicode	:0:NotoSerifCJK-Regular.ttc -w 1 -l jp90 %!DVIPSFB !Ryumin-Light-UniJIS-UTF16-V
+uphminb-h	unicode	:0:NotoSerifCJK-Bold.ttc -l jp90 %!DVIPSFB !Ryumin-Light,Bold-UniJIS-UTF16-H
+uphminb-v	unicode	:0:NotoSerifCJK-Bold.ttc -w 1 -l jp90 %!DVIPSFB !Ryumin-Light,Bold-UniJIS-UTF16-V
+uphgothr-h	unicode	:0:NotoSansCJK-Regular.ttc -l jp90 %!DVIPSFB !GothicBBB-Medium-UniJIS-UTF16-H
+uphgothr-v	unicode	:0:NotoSansCJK-Regular.ttc -w 1 -l jp90 %!DVIPSFB !GothicBBB-Medium-UniJIS-UTF16-V
+uphgothb-h	unicode	:0:NotoSansCJK-Bold.ttc -l jp90 %!DVIPSFB !GothicBBB-Medium,Bold-UniJIS-UTF16-H
+uphgothb-v	unicode	:0:NotoSansCJK-Bold.ttc -w 1 -l jp90 %!DVIPSFB !GothicBBB-Medium,Bold-UniJIS-UTF16-V
+uphgotheb-h	unicode	:0:NotoSansCJK-Black.ttc -l jp90 %!DVIPSFB !GothicBBB-Medium,Bold-UniJIS-UTF16-H
+uphgotheb-v	unicode	:0:NotoSansCJK-Black.ttc -w 1 -l jp90 %!DVIPSFB !GothicBBB-Medium,Bold-UniJIS-UTF16-V
+uphmgothr-h	unicode	:0:NotoSansCJK-Medium.ttc -l jp90 %!DVIPSFB !GothicBBB-Medium-UniJIS-UTF16-H
+uphmgothr-v	unicode	:0:NotoSansCJK-Medium.ttc -w 1 -l jp90 %!DVIPSFB !GothicBBB-Medium-UniJIS-UTF16-V
+
+% TEXT, JIS04
+uphminln-h	unicode	:0:NotoSerifCJK-Light.ttc -l jp04 %!DVIPSFB !Ryumin-Light-UniJIS2004-UTF16-H
+uphminln-v	unicode	:0:NotoSerifCJK-Light.ttc -w 1 -l jp04 %!DVIPSFB !Ryumin-Light-UniJIS2004-UTF16-V
+uphminrn-h	unicode	:0:NotoSerifCJK-Regular.ttc -l jp04 %!DVIPSFB !Ryumin-Light-UniJIS2004-UTF16-H
+uphminrn-v	unicode	:0:NotoSerifCJK-Regular.ttc -w 1 -l jp04 %!DVIPSFB !Ryumin-Light-UniJIS2004-UTF16-V
+uphminbn-h	unicode	:0:NotoSerifCJK-Bold.ttc -l jp04 %!DVIPSFB !Ryumin-Light,Bold-UniJIS2004-UTF16-H
+uphminbn-v	unicode	:0:NotoSerifCJK-Bold.ttc -w 1 -l jp04 %!DVIPSFB !Ryumin-Light,Bold-UniJIS2004-UTF16-V
+uphgothrn-h	unicode	:0:NotoSansCJK-Regular.ttc -l jp04 %!DVIPSFB !GothicBBB-Medium-UniJIS2004-UTF16-H
+uphgothrn-v	unicode	:0:NotoSansCJK-Regular.ttc -w 1 -l jp04 %!DVIPSFB !GothicBBB-Medium-UniJIS2004-UTF16-V
+uphgothbn-h	unicode	:0:NotoSansCJK-Bold.ttc -l jp04 %!DVIPSFB !GothicBBB-Medium,Bold-UniJIS2004-UTF16-H
+uphgothbn-v	unicode	:0:NotoSansCJK-Bold.ttc -w 1 -l jp04 %!DVIPSFB !GothicBBB-Medium,Bold-UniJIS2004-UTF16-V
+uphgothebn-h	unicode	:0:NotoSansCJK-Black.ttc -l jp04 %!DVIPSFB !GothicBBB-Medium,Bold-UniJIS2004-UTF16-H
+uphgothebn-v	unicode	:0:NotoSansCJK-Black.ttc -w 1 -l jp04 %!DVIPSFB !GothicBBB-Medium,Bold-UniJIS2004-UTF16-V
+uphmgothrn-h	unicode	:0:NotoSansCJK-Medium.ttc -l jp04 %!DVIPSFB !GothicBBB-Medium-UniJIS2004-UTF16-H
+uphmgothrn-v	unicode	:0:NotoSansCJK-Medium.ttc -w 1 -l jp04 %!DVIPSFB !GothicBBB-Medium-UniJIS2004-UTF16-V
