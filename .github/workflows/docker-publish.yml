@@ -1,0 +1,54 @@
+name: Docker
+
+on:
+  push:
+    branches:
+      - master
+  # Run tests for each PRs.
+  pull_request: {}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run test
+        run: docker build .
+
+  push:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    env:
+      IMAGE_ID: ghcr.io/${{ github.repository_owner }}/review
+      LATEST_VERSION: "4.2"
+    strategy:
+      matrix:
+        version:
+          - "3.0"
+          - "3.1"
+          - "3.2"
+          - "4.0"
+          - "4.1"
+          - "4.2"
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build image
+        run: |
+          docker build . --file ${{ matrix.version }}/Dockerfile --tag $IMAGE_ID:${{ matrix.version }}
+
+      - name: Log into GitHub Container Registry
+        run: echo "${{ secrets.DOCKER_CR_PAT }}" | docker login https://ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Push tagged image to GitHub Container Registry
+        run: |
+          echo version=${{ matrix.version }}
+          docker push $IMAGE_ID:${{ matrix.version }}
+      
+      - name: Push latest image to GitHub Container Registry
+        if: ${{ matrix.version }} == ${{ env.LATEST_VERSION }}
+        run: |
+          echo version=${{ matrix.version }}
+          docker tag $IMAGE_ID:${{ matrix.version }} $IMAGE_ID:latest
+          docker push $IMAGE_ID:latest
