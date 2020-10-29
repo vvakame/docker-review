@@ -21,7 +21,7 @@ jobs:
   push:
     needs: test
     runs-on: ubuntu-latest
-    # if: github.event_name == 'push'
+    if: github.event_name == 'push'
     strategy:
       matrix:
         version:
@@ -46,10 +46,11 @@ jobs:
           echo version=${{ matrix.version }}
           docker push $IMAGE_ID:${{ matrix.version }}
 
+  # 最後にpushされたものにlatestが更新されるので他のタグ付きと分ける ついでにビルドもし直していいでしょ…
   push_latest:
     needs: push
     runs-on: ubuntu-latest
-    # if: github.event_name == 'push'
+    if: github.event_name == 'push'
     steps:
       - uses: actions/checkout@v2
 
