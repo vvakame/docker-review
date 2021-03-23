@@ -5,7 +5,10 @@ ENV REVIEW_VERSION 4.2.0
 ENV REVIEW_PEG_VERSION 0.2.2
 ENV NODEJS_VERSION 14
 
-ENV HARANOAJI_VERSION 20200612
+ENV HARANOAJI_VERSION 20210130
+
+ENV PANDOC_VERSION 2.12
+ENV PANDOC_DEB_VERSION 2.12-1
 
 ENV LANG en_US.UTF-8
 
@@ -37,7 +40,8 @@ RUN apt-get update && \
 
 # setup Re:VIEW
 RUN gem install bundler rake --no-rdoc --no-ri && \
-    gem install review -v "$REVIEW_VERSION" --no-rdoc --no-ri
+    gem install review -v "$REVIEW_VERSION" --no-rdoc --no-ri && \
+    gem install pandoc2review --no-rdoc --no-ri
 #   gem install review-peg -v "$REVIEW_PEG_VERSION" --no-rdoc --no-ri
 
 # install node.js environment
@@ -78,6 +82,11 @@ COPY haranoaji/ /usr/share/texlive/texmf-dist/fonts/map/dvipdfmx/ptex-fontmaps/h
 
 ## use haranoaji for uplatex
 RUN texhash && kanji-config-updmap-sys haranoaji
+
+## install pandoc
+RUN curl -sL -o /tmp/pandoc.deb https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_DEB_VERSION}-amd64.deb && \
+    dpkg -i /tmp/pandoc.deb && \
+    rm /tmp/pandoc.deb
 
 ## set cache folder to work folder (disabled by default)
 # RUN mkdir -p /etc/texmf/texmf.d && echo "TEXMFVAR=/work/.texmf-var" > /etc/texmf/texmf.d/99local.cnf
