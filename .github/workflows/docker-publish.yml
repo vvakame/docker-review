@@ -58,7 +58,10 @@ jobs:
 
       - name: Build image
         run: |
-          docker build . --tag $IMAGE_ID:latest
+          docker buildx build \
+            --push \
+            --platform linux/arm , linux/amd64 \
+            -t $IMAGE_ID:latest
 
       - name: Log into GitHub Container Registry
         run: echo "${{ secrets.DOCKER_CR_PAT }}" | docker login https://ghcr.io -u ${{ github.actor }} --password-stdin
