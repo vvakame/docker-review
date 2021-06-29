@@ -19,29 +19,23 @@ docker-composeを使った時の手引としても使えます。
 ### サポートしているタグ
 
 Re:VIEWのバージョン毎にイメージを作成しています。
-現在存在しているタグは `latest`, `3.0`, `3.1`, `3.2`, `4.0`, `4.1`, `4.2`, `5.0`, `5.1` です。
-`2.3`, `2.4` , `2.5` もDocker Hub上に存在していますが、サポートは終了しています。
+現在存在しているタグは `latest`, `3.2`, `4.2`, `5.0`, `5.1`, `5.2` です。
+`2.5` もDocker Hub上に存在していますが、サポートは終了しています。
 
 ```
+$ docker pull vvakame/review:5.2
 $ docker pull vvakame/review:5.1
 $ docker pull vvakame/review:5.0
 $ docker pull vvakame/review:4.2
-$ docker pull vvakame/review:4.1
-$ docker pull vvakame/review:4.0
 $ docker pull vvakame/review:3.2
-$ docker pull vvakame/review:3.1
-$ docker pull vvakame/review:3.0
 ```
 
 ```
+$ docker pull ghcr.io/vvakame/review:5.2
 $ docker pull ghcr.io/vvakame/review:5.1
 $ docker pull ghcr.io/vvakame/review:5.0
 $ docker pull ghcr.io/vvakame/review:4.2
-$ docker pull ghcr.io/vvakame/review:4.1
-$ docker pull ghcr.io/vvakame/review:4.0
 $ docker pull ghcr.io/vvakame/review:3.2
-$ docker pull ghcr.io/vvakame/review:3.1
-$ docker pull ghcr.io/vvakame/review:3.0
 ```
 
 ### インストールされているコマンド
@@ -101,13 +95,13 @@ PDF作成時、原の味フォントをデフォルトで利用し、フォン�
 pdf出力する場合
 
 ```
-/bin/sh -c "cd /work && review-pdfmaker config.yml"
+/bin/sh -c "cd /work && rake pdf"
 ```
 
 この例では実行するコマンドは次のようになります。
 
 ```
-$ docker run --rm -v `pwd`/src:/work vvakame/review /bin/sh -c "cd /work && review-pdfmaker config.yml"
+$ docker run --rm -v `pwd`/src:/work vvakame/review /bin/sh -c "cd /work && rake pdf"
 ```
 
 ビルドが終了すると、`src`ディレクトリ内にpdfファイルが出力されます。
