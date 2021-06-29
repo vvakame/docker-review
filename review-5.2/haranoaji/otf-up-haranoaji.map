@@ -1,0 +1,32 @@
+
+% TEXT, 90JIS
+uphminl-h	UniJIS-UTF16-H	HaranoAjiMincho-Light.otf
+uphminl-v	UniJIS-UTF16-V	HaranoAjiMincho-Light.otf
+uphminr-h	UniJIS-UTF16-H	HaranoAjiMincho-Regular.otf
+uphminr-v	UniJIS-UTF16-V	HaranoAjiMincho-Regular.otf
+uphminb-h	UniJIS-UTF16-H	HaranoAjiMincho-Bold.otf
+uphminb-v	UniJIS-UTF16-V	HaranoAjiMincho-Bold.otf
+uphgothr-h	UniJIS-UTF16-H	HaranoAjiGothic-Regular.otf
+uphgothr-v	UniJIS-UTF16-V	HaranoAjiGothic-Regular.otf
+uphgothb-h	UniJIS-UTF16-H	HaranoAjiGothic-Bold.otf
+uphgothb-v	UniJIS-UTF16-V	HaranoAjiGothic-Bold.otf
+uphgotheb-h	UniJIS-UTF16-H	HaranoAjiGothic-Heavy.otf
+uphgotheb-v	UniJIS-UTF16-V	HaranoAjiGothic-Heavy.otf
+uphmgothr-h	UniJIS-UTF16-H	HaranoAjiGothic-Medium.otf
+uphmgothr-v	UniJIS-UTF16-V	HaranoAjiGothic-Medium.otf
+
+% TEXT, JIS04
+uphminln-h	UniJIS2004-UTF16-H	HaranoAjiMincho-Light.otf
+uphminln-v	UniJIS2004-UTF16-V	HaranoAjiMincho-Light.otf
+uphminrn-h	UniJIS2004-UTF16-H	HaranoAjiMincho-Regular.otf
+uphminrn-v	UniJIS2004-UTF16-V	HaranoAjiMincho-Regular.otf
+uphminbn-h	UniJIS2004-UTF16-H	HaranoAjiMincho-Bold.otf
+uphminbn-v	UniJIS2004-UTF16-V	HaranoAjiMincho-Bold.otf
+uphgothrn-h	UniJIS2004-UTF16-H	HaranoAjiGothic-Regular.otf
+uphgothrn-v	UniJIS2004-UTF16-V	HaranoAjiGothic-Regular.otf
+uphgothbn-h	UniJIS2004-UTF16-H	HaranoAjiGothic-Bold.otf
+uphgothbn-v	UniJIS2004-UTF16-V	HaranoAjiGothic-Bold.otf
+uphgothebn-h	UniJIS2004-UTF16-H	HaranoAjiGothic-Heavy.otf
+uphgothebn-v	UniJIS2004-UTF16-V	HaranoAjiGothic-Heavy.otf
+uphmgothrn-h	UniJIS2004-UTF16-H	HaranoAjiGothic-Medium.otf
+uphmgothrn-v	UniJIS2004-UTF16-V	HaranoAjiGothic-Medium.otf
