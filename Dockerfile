@@ -1,7 +1,7 @@
 FROM debian:buster-slim
 LABEL maintainer="vvakame@gmail.com"
 
-ENV REVIEW_VERSION 5.1.1
+ENV REVIEW_VERSION 5.2.0
 ENV REVIEW_PEG_VERSION 0.2.2
 ENV NODEJS_VERSION 14
 
