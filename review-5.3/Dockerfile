@@ -60,9 +60,9 @@ RUN apt-get update && \
     npm install -g yarn
 
 # install noto font
-RUN apt-get update && apt-get -y install fonts-noto-cjk-extra && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+# RUN apt-get update && apt-get -y install fonts-noto-cjk-extra && \
+#     apt-get clean && \
+#     rm -rf /var/lib/apt/lists/*
 
 ## if you want to use noto font instead of haranoaji font, use this settings
 # RUN kanji-config-updmap-sys noto-otc
