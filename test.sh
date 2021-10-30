@@ -1,6 +1,6 @@
 #!/bin/bash -eux
 
-docker build --tag vvakame/review:local-build .
+docker build --privileged=true --tag vvakame/review:local-build .
 
 git submodule init && git submodule update
 
