@@ -10,7 +10,7 @@ jobs:
           command: |
             set -x
             apt-get update
-            apt-get install -y --no-install-recommends git-core curl ca-certificates
+            apt-get install -y --no-install-recommends git-core curl ca-certificates libseccomp2
       - checkout
       - setup_remote_docker
       - run:
