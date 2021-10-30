@@ -9,6 +9,7 @@ ENV PANDOC_VERSION 2.15
 ENV PANDOC_DEB_VERSION 2.15-1
 
 ENV LANG en_US.UTF-8
+ENV DEBIAN_FRONTEND noninteractive
 
 # setup
 RUN apt-get update && \
