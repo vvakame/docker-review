@@ -1,7 +1,8 @@
 #!/bin/bash -eux
 
 # 2.3.0 2.4.0 2.5.0 のサポートは終了しました
-versions=(3.0.0 3.1.0 3.2.0 4.0.0 4.1.0 4.2.0 5.0.0 5.1.1)
+# 3.0.0〜5.2.0 はDebian 10で凍結し、update反映外とします
+versions=(5.3.0)
 
 for version in "${versions[@]}"
 do
