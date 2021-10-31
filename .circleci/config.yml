@@ -9,7 +9,7 @@ jobs:
           command: |
             set -x
             sudo apt-get update
-            sudo apt-get install --allow --no-install-recommends git curl ca-certificates
+            sudo apt-get install -y --no-install-recommends git curl ca-certificates
       - checkout
       - run:
           name: Install Docker client
