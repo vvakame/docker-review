@@ -9,15 +9,22 @@ ENV PANDOC_VERSION 2.15
 ENV PANDOC_DEB_VERSION 2.15-1
 
 ENV LANG en_US.UTF-8
+ENV DEBIAN_FRONTEND noninteractive
 
 # setup
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-      locales git-core curl ca-certificates libpaper1 && \
+      locales git-core curl ca-certificates && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
 RUN locale-gen en_US.UTF-8 && update-locale en_US.UTF-8
+
+# avoid CircleCI Docker issue...
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends libpaper1 || apt-get -f install && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 # for Debian Bug#955619
 RUN mkdir -p /usr/share/man/man1
