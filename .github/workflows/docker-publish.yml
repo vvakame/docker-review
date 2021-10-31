@@ -8,7 +8,8 @@ on:
   pull_request: {}
 
 env:
-  IMAGE_ID: ghcr.io/${{ github.repository_owner }}/review
+  GHCR_IMAGE_ID: ghcr.io/${{ github.repository_owner }}/review
+  HUB_IMAGE_ID: ${{ github.repository_owner }}/review
 
 jobs:
   test:
@@ -36,15 +37,25 @@ jobs:
 
       - name: Build image
         run: |
-          cd "review-${{ matrix.version }}" && docker build . --tag $IMAGE_ID:${{ matrix.version }}
+          cd "review-${{ matrix.version }}"
+          docker build . --tag review
 
       - name: Log into GitHub Container Registry
         run: echo "${{ secrets.DOCKER_CR_PAT }}" | docker login https://ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Push tagged image to GitHub Container Registry
         run: |
-          echo version=${{ matrix.version }}
-          docker push $IMAGE_ID:${{ matrix.version }}
+          docker tag review $GHCR_IMAGE_ID:${{ matrix.version }}
+          docker push $GHCR_IMAGE_ID:${{ matrix.version }}
+
+      - name: Log into Docker Hub
+        run: echo "${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}" | docker login -u ${{ github.actor }} --password-stdin
+
+      - name: Push tagged image to Docker Hub
+        run: |
+          docker tag review $HUB_IMAGE_ID:${{ matrix.version }}
+          docker push $HUB_IMAGE_ID:${{ matrix.version }}
+
 
   # 最後にpushされたものにlatestが更新されるので他のタグ付きと分ける ついでにビルドもし直していいでしょ…
   push_latest:
@@ -56,11 +67,20 @@ jobs:
 
       - name: Build image
         run: |
-          docker build . --tag $IMAGE_ID:latest
+          docker build . --tag review
 
       - name: Log into GitHub Container Registry
         run: echo "${{ secrets.DOCKER_CR_PAT }}" | docker login https://ghcr.io -u ${{ github.actor }} --password-stdin
-      
+
       - name: Push latest image to GitHub Container Registry
         run: |
-          docker push $IMAGE_ID:latest
+          docker tag review $GHCR_IMAGE_ID:latest
+          docker push $GHCR_IMAGE_ID:latest
+
+      - name: Log into Docker Hub
+        run: echo "${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}" | docker login -u ${{ github.actor }} --password-stdin
+
+      - name: Push latest image to Docker Hub
+        run: |
+          docker tag review $HUB_IMAGE_ID:latest
+          docker push $HUB_IMAGE_ID:latest
