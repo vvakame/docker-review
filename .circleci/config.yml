@@ -1,9 +1,8 @@
 version: 2
 jobs:
   build:
-    docker:
-      - image: ubuntu
-    working_directory: /work
+    machiner:
+      - image: ubuntu-2004:202107-02
     steps:
       - run:
           name: Install Dependencies
