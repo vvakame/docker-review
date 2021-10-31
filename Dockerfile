@@ -20,12 +20,6 @@ RUN apt-get update && \
 RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
 RUN locale-gen en_US.UTF-8 && update-locale en_US.UTF-8
 
-# avoid CircleCI Docker issue...
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends libpaper1 || apt-get -f install && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
 # for Debian Bug#955619
 RUN mkdir -p /usr/share/man/man1
 
@@ -40,7 +34,7 @@ RUN apt-get update && \
       graphviz gnuplot python3-blockdiag plantuml \
       ruby-dev build-essential \
       mecab-jumandic- mecab-jumandic-utf8- \
-      texlive-extra-utils poppler-utils && \
+      texlive-extra-utils poppler-utils || apt-get -f install && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 ## if you want to use ipa font instead of haranoaji font, use this settings
