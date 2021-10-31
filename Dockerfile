@@ -22,6 +22,8 @@ RUN locale-gen en_US.UTF-8 && update-locale en_US.UTF-8
 
 # for Debian Bug#955619
 RUN mkdir -p /usr/share/man/man1
+# for CircleCI statx problem
+RUN echo "a4" > /etc/papersize
 
 # install Re:VIEW environment
 RUN apt-get update && \
