@@ -9,9 +9,8 @@ jobs:
           command: |
             set -x
             apt-get update
-            apt-get install -y --no-install-recommends git curl ca-certificates libseccomp2
+            apt-get install -y --no-install-recommends git curl ca-certificates
       - checkout
-      - setup_remote_docker
       - run:
           name: Install Docker client
           command: |
