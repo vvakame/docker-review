@@ -34,8 +34,7 @@ RUN apt-get update && \
       graphviz gnuplot python3-blockdiag plantuml \
       ruby-dev build-essential \
       mecab-jumandic- mecab-jumandic-utf8- \
-      texlive-extra-utils poppler-utils || \
-      (cat /etc/papersize; dpkg-reconfigure -pcritical libpaper1 && apt-get -f install) && \
+      texlive-extra-utils poppler-utils && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 ## if you want to use ipa font instead of haranoaji font, use this settings
