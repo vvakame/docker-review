@@ -43,8 +43,7 @@ RUN apt-get update && \
 # setup Re:VIEW
 RUN gem install bundler rake -N && \
     gem install review -v "$REVIEW_VERSION" -N && \
-    gem install pandoc2review -N && \
-    gem install rubyzip -N
+    gem install pandoc2review -N
 #   gem install review-peg -v "$REVIEW_PEG_VERSION" -N
 
 # install node.js environment

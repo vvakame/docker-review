@@ -30,6 +30,7 @@ jobs:
           - "5.0"
           - "5.1"
           - "5.2"
+          - "5.3"
     steps:
       - uses: actions/checkout@v2
 

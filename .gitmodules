@@ -1,3 +1,6 @@
 [submodule "sample-book-v2"]
 	path = sample-book-v2
 	url = https://github.com/TechBooster/ReVIEW-Template.git
+[submodule "sample-book-v2p"]
+	path = sample-book-v2p
+	url = https://github.com/kmuto/ReVIEW-Template.git
