@@ -1,6 +1,8 @@
 FROM debian:bullseye-slim
 LABEL maintainer="vvakame@gmail.com"
 
+ARG ARCH=amd64
+
 ENV REVIEW_VERSION 5.3.0
 ENV REVIEW_PEG_VERSION 0.2.2
 ENV NODEJS_VERSION 16
@@ -72,7 +74,7 @@ RUN apt-get update && \
 RUN kanji-config-updmap-sys haranoaji
 
 ## install pandoc
-RUN curl -sL -o /tmp/pandoc.deb https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_DEB_VERSION}-amd64.deb && \
+RUN curl -sL -o /tmp/pandoc.deb https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_DEB_VERSION}-${ARCH}.deb && \
     dpkg -i /tmp/pandoc.deb && \
     rm /tmp/pandoc.deb
 
