@@ -72,7 +72,7 @@ RUN apt-get update && \
 RUN kanji-config-updmap-sys haranoaji
 
 ## install pandoc
-RUN curl -sL -o /tmp/pandoc.deb https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_DEB_VERSION}-amd64.deb && \
+RUN curl -sL -o /tmp/pandoc.deb https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_DEB_VERSION}-$(dpkg --print-architecture).deb && \
     dpkg -i /tmp/pandoc.deb && \
     rm /tmp/pandoc.deb
 
