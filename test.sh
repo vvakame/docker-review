@@ -1,6 +1,10 @@
 #!/bin/bash -eux
 
-docker build --tag vvakame/review:local-build .
+if [[ "${CI:-}" = "true" ]]; then
+    docker buildx build --tag vvakame/review:local-build --platform linux/amd64,linux/arm64 .
+else
+    docker build --tag vvakame/review:local-build .
+fi
 
 git submodule init && git submodule update
 
