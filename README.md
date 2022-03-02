@@ -19,10 +19,11 @@ docker-composeを使った時の手引としても使えます。
 ### サポートしているタグ
 
 Re:VIEWのバージョン毎にイメージを作成しています。
-現在存在しているタグは `latest`, `3.2`, `4.2`, `5.0`, `5.1`, `5.2`, `5.3` です。
+現在存在しているタグは `latest`, `3.2`, `4.2`, `5.0`, `5.1`, `5.2`, `5.3`, `5.4` です。
 `2.3`, `2.4` , `2.5` もDocker Hub上に存在していますが、サポートは終了しています。
 
 ```
+$ docker pull vvakame/review:5.4
 $ docker pull vvakame/review:5.3
 $ docker pull vvakame/review:5.2
 $ docker pull vvakame/review:5.1
@@ -32,6 +33,7 @@ $ docker pull vvakame/review:3.2
 ```
 
 ```
+$ docker pull ghcr.io/vvakame/review:5.4
 $ docker pull ghcr.io/vvakame/review:5.3
 $ docker pull ghcr.io/vvakame/review:5.2
 $ docker pull ghcr.io/vvakame/review:5.1
@@ -44,11 +46,13 @@ $ docker pull ghcr.io/vvakame/review:3.2
 
 * git
 * curl
-* texlive & 日本語環境
-* mecab （Re:VIEW 索引作成時に利用される）
-* ruby （Re:VIEW 実行環境）
+* TeXLive & 日本語環境
+* MeCab （Re:VIEW 索引作成時に利用される）
+* Ruby （Re:VIEW 実行環境）
 * Node.js & npm （[ReVIEW-Template](https://github.com/TechBooster/ReVIEW-Template)用環境）
 * Re:VIEW & rake & bundler
+* pandoc
+* pandoc2review
 
 他。詳細は[Dockerfile](https://github.com/vvakame/docker-review/blob/master/Dockerfile)を参照してください。
 
@@ -85,7 +89,7 @@ PDF作成時、[原の味フォント](https://github.com/trueroad/HaranoAjiFont
 -v `pwd`/src:/work
 ```
 
-`work`ディレクトリは任意の名前でよいです。後述のコマンドで`cd`する先になります。
+`work`ディレクトリは任意の名前でよいです。後述のコマンドで`cd`をする先になります。
 
 - `vvakame/review` イメージを使用する
 
