@@ -89,7 +89,7 @@ PDF作成時、[原の味フォント](https://github.com/trueroad/HaranoAjiFont
 -v `pwd`/src:/work
 ```
 
-`work`ディレクトリは任意の名前でよいです。後述のコマンドで`cd`する先になります。
+`work`ディレクトリは任意の名前でよいです。後述のコマンドで`cd`をする先になります。
 
 - `vvakame/review` イメージを使用する
 
