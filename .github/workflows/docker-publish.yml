@@ -10,6 +10,7 @@ on:
 env:
   GHCR_IMAGE_ID: ghcr.io/${{ github.repository_owner }}/review
   HUB_IMAGE_ID: ${{ github.repository_owner }}/review
+  REGISTRY_USER_ID: vvakame
 
 jobs:
   test:
@@ -43,7 +44,7 @@ jobs:
           docker build . --tag review
 
       - name: Log into GitHub Container Registry
-        run: echo "${{ secrets.DOCKER_CR_PAT }}" | docker login https://ghcr.io -u ${{ github.actor }} --password-stdin
+        run: echo "${{ secrets.DOCKER_CR_PAT }}" | docker login https://ghcr.io -u "${REGISTRY_USER_ID}" --password-stdin
 
       - name: Push tagged image to GitHub Container Registry
         run: |
@@ -51,7 +52,7 @@ jobs:
           docker push $GHCR_IMAGE_ID:${{ matrix.version }}
 
       - name: Log into Docker Hub
-        run: echo "${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}" | docker login -u ${{ github.actor }} --password-stdin
+        run: echo "${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}" | docker login -u "${REGISTRY_USER_ID}" --password-stdin
 
       - name: Push tagged image to Docker Hub
         run: |
@@ -72,7 +73,7 @@ jobs:
           docker build . --tag review
 
       - name: Log into GitHub Container Registry
-        run: echo "${{ secrets.DOCKER_CR_PAT }}" | docker login https://ghcr.io -u ${{ github.actor }} --password-stdin
+        run: echo "${{ secrets.DOCKER_CR_PAT }}" | docker login https://ghcr.io -u "${REGISTRY_USER_ID}" --password-stdin
 
       - name: Push latest image to GitHub Container Registry
         run: |
@@ -80,7 +81,7 @@ jobs:
           docker push $GHCR_IMAGE_ID:latest
 
       - name: Log into Docker Hub
-        run: echo "${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}" | docker login -u ${{ github.actor }} --password-stdin
+        run: echo "${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}" | docker login -u "${REGISTRY_USER_ID}" --password-stdin
 
       - name: Push latest image to Docker Hub
         run: |
