@@ -5,8 +5,8 @@ ENV REVIEW_VERSION 5.3.0
 ENV REVIEW_PEG_VERSION 0.2.2
 ENV NODEJS_VERSION 16
 
-ENV PANDOC_VERSION 2.15
-ENV PANDOC_DEB_VERSION 2.15-1
+ENV PANDOC_VERSION 2.17.1.1
+ENV PANDOC_DEB_VERSION 2.17.1.1-1
 
 ENV LANG en_US.UTF-8
 ENV DEBIAN_FRONTEND noninteractive
@@ -43,7 +43,8 @@ RUN apt-get update && \
 # setup Re:VIEW
 RUN gem install bundler rake -N && \
     gem install review -v "$REVIEW_VERSION" -N && \
-    gem install pandoc2review -N
+    gem install pandoc2review -N && \
+    gem install rubyzip -N
 #   gem install review-peg -v "$REVIEW_PEG_VERSION" -N
 
 # install node.js environment
@@ -71,7 +72,7 @@ RUN apt-get update && \
 RUN kanji-config-updmap-sys haranoaji
 
 ## install pandoc
-RUN curl -sL -o /tmp/pandoc.deb https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_DEB_VERSION}-amd64.deb && \
+RUN curl -sL -o /tmp/pandoc.deb https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_DEB_VERSION}-$(dpkg --print-architecture).deb && \
     dpkg -i /tmp/pandoc.deb && \
     rm /tmp/pandoc.deb
 
