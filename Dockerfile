@@ -1,17 +1,15 @@
 FROM debian:bullseye-slim
 LABEL maintainer="vvakame@gmail.com"
 
-# ref
-# https://zenn.dev/bells17/articles/docker-buildx
 # https://docs.docker.com/engine/reference/builder/#automatic-platform-args-in-the-global-scope
 ARG TARGETARCH
 
-ENV REVIEW_VERSION 5.3.0
+ENV REVIEW_VERSION 5.6.0
 ENV REVIEW_PEG_VERSION 0.2.2
 ENV NODEJS_VERSION 16
 
-ENV PANDOC_VERSION 2.15
-ENV PANDOC_DEB_VERSION 2.15-1
+ENV PANDOC_VERSION 2.17.1.1
+ENV PANDOC_DEB_VERSION 2.17.1.1-1
 
 ENV LANG en_US.UTF-8
 ENV DEBIAN_FRONTEND noninteractive

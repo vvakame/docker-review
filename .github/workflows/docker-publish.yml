@@ -10,12 +10,14 @@ on:
 env:
   GHCR_IMAGE_ID: ghcr.io/${{ github.repository_owner }}/review
   HUB_IMAGE_ID: ${{ github.repository_owner }}/review
+  REGISTRY_USER_ID: vvakame
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       - name: Set up Docker Buildx
@@ -31,14 +33,14 @@ jobs:
     strategy:
       matrix:
         version:
-          - "3.2"
-          - "4.2"
-          - "5.0"
-          - "5.1"
-          - "5.2"
+          # bullseye 以降のイメージだけサポート
           - "5.3"
+          - "5.4"
+          - "5.5"
+          - "5.6"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       - name: Set up Docker Buildx
@@ -50,7 +52,7 @@ jobs:
           docker buildx build . --tag review --platform linux/amd64,linux/arm64
 
       - name: Log into GitHub Container Registry
-        run: echo "${{ secrets.DOCKER_CR_PAT }}" | docker login https://ghcr.io -u ${{ github.actor }} --password-stdin
+        run: echo "${{ secrets.DOCKER_CR_PAT }}" | docker login https://ghcr.io -u "${REGISTRY_USER_ID}" --password-stdin
 
       - name: Push tagged image to GitHub Container Registry
         run: |
@@ -58,7 +60,7 @@ jobs:
           docker push $GHCR_IMAGE_ID:${{ matrix.version }}
 
       - name: Log into Docker Hub
-        run: echo "${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}" | docker login -u ${{ github.actor }} --password-stdin
+        run: echo "${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}" | docker login -u "${REGISTRY_USER_ID}" --password-stdin
 
       - name: Push tagged image to Docker Hub
         run: |
@@ -72,7 +74,8 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       - name: Set up Docker Buildx
@@ -83,7 +86,7 @@ jobs:
           docker buildx build . --tag review --platform linux/amd64,linux/arm64
 
       - name: Log into GitHub Container Registry
-        run: echo "${{ secrets.DOCKER_CR_PAT }}" | docker login https://ghcr.io -u ${{ github.actor }} --password-stdin
+        run: echo "${{ secrets.DOCKER_CR_PAT }}" | docker login https://ghcr.io -u "${REGISTRY_USER_ID}" --password-stdin
 
       - name: Push latest image to GitHub Container Registry
         run: |
@@ -91,7 +94,7 @@ jobs:
           docker push $GHCR_IMAGE_ID:latest
 
       - name: Log into Docker Hub
-        run: echo "${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}" | docker login -u ${{ github.actor }} --password-stdin
+        run: echo "${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}" | docker login -u "${REGISTRY_USER_ID}" --password-stdin
 
       - name: Push latest image to Docker Hub
         run: |
