@@ -63,7 +63,7 @@ jobs:
         with:
           push: true
           context: "review-${{ matrix.version }}"
-          tags: $GHCR_IMAGE_ID:${{ matrix.version }},$HUB_IMAGE_ID:${{ matrix.version }}
+          tags: "${{ env.GHCR_IMAGE_ID }}:${{ matrix.version }},${{ env.HUB_IMAGE_ID }}:${{ matrix.version }}"
           platforms: linux/amd64,linux/arm64
 
   # 最後にpushされたものにlatestが更新されるので他のタグ付きと分ける ついでにビルドもし直していいでしょ…
@@ -95,5 +95,5 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: $GHCR_IMAGE_ID:latest,$HUB_IMAGE_ID:latest
+          tags: "${{ env.GHCR_IMAGE_ID }}:latest,${{ env.HUB_IMAGE_ID }}:latest"
           platforms: linux/amd64,linux/arm64
