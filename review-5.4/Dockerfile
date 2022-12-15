@@ -1,6 +1,9 @@
 FROM debian:bullseye-slim
 LABEL maintainer="vvakame@gmail.com"
 
+# https://docs.docker.com/engine/reference/builder/#automatic-platform-args-in-the-global-scope
+ARG TARGETARCH
+
 ENV REVIEW_VERSION 5.4.0
 ENV REVIEW_PEG_VERSION 0.2.2
 ENV NODEJS_VERSION 16
@@ -72,7 +75,7 @@ RUN apt-get update && \
 RUN kanji-config-updmap-sys haranoaji
 
 ## install pandoc
-RUN curl -sL -o /tmp/pandoc.deb https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_DEB_VERSION}-$(dpkg --print-architecture).deb && \
+RUN curl -sL -o /tmp/pandoc.deb "https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_DEB_VERSION}-${TARGETARCH}.deb" && \
     dpkg -i /tmp/pandoc.deb && \
     rm /tmp/pandoc.deb
 
