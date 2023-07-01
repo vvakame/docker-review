@@ -74,10 +74,10 @@ RUN apt-get update && apt-get -y install pandoc && \
     rm -rf /var/lib/apt/lists/*
 
 ## Playwright support with fonts. This consumes ~350MB
-RUN apt-get update && apt-get -y install fonts-noto-cjk-extra fonts-noto-color-emoji && \
+RUN apt-get update && apt-get -y install --no-install-recommends fonts-noto-cjk-extra fonts-noto-color-emoji libatk1.0-0 libatk-bridge2.0-0 libdrm2 libxkbcommon0 libxcomposite1 libxdamage1 libxfixes3 libxrandr2 libgbm1 libpango-1.0-0 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-RUN npm install -g playwright && gem install playwright-runner -N
+RUN npm install -g playwright && rm -rf /root/.cache/ms-playwright/firefox* /root/.cache/ms-playwright/webkit* && gem install playwright-runner -N
 
 ## set cache folder to work folder (disabled by default)
 # RUN mkdir -p /etc/texmf/texmf.d && echo "TEXMFVAR=/work/.texmf-var" > /etc/texmf/texmf.d/99local.cnf
