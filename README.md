@@ -1,6 +1,5 @@
 # Re:VIEW image for Docker
 
-[![CircleCI](https://circleci.com/gh/vvakame/docker-review.svg?style=svg)](https://circleci.com/gh/vvakame/docker-review)
 [![Docker Build Statu](https://img.shields.io/docker/build/vvakame/review.svg)](https://hub.docker.com/r/vvakame/review/)
 [![Docker Automated buil](https://img.shields.io/docker/automated/vvakame/review.svg)](https://hub.docker.com/r/vvakame/review/)
 [![Docker Stars](https://img.shields.io/docker/stars/vvakame/review.svg)](https://hub.docker.com/r/vvakame/review/)
@@ -8,7 +7,7 @@
 
 このリポジトリは[Docker](https://www.docker.com/)上で[Re:VIEW](https://github.com/kmuto/review/)を動かすためのものです。
 
-[Docker Hub](https://hub.docker.com/r/vvakame/review/)にTrusted Buildとして置いてあるのでご活用ください。
+[Docker Hub](https://hub.docker.com/r/vvakame/review/)に置いてあるのでご活用ください。
 試験的に[GitHub Container Registry](https://github.com/users/vvakame/packages/container/package/review)にも置いてあります。
 
 Windows用の手引は[こちら](https://github.com/vvakame/docker-review/blob/master/doc/windows-review.md)を参考にしてください。
@@ -19,10 +18,11 @@ docker-composeを使った時の手引としても使えます。
 ### サポートしているタグ
 
 Re:VIEWのバージョン毎にイメージを作成しています。
-現在存在しているタグは `latest`, `5.3`, `5.4`, `5.5`, `5.6`, `5.7` です。
+現在存在しているタグは `latest`, `5.3`, `5.4`, `5.5`, `5.6`, `5.7`, `5.8` です。
 `2.3`, `2.4` , `2.5`, `3.2`, `4.2`, `5.0`, `5.1`, `5.2` もDocker Hub上に存在していますが、サポートは終了しています。
 
 ```
+$ docker pull vvakame/review:5.8
 $ docker pull vvakame/review:5.7
 $ docker pull vvakame/review:5.6
 $ docker pull vvakame/review:5.5
@@ -31,6 +31,7 @@ $ docker pull vvakame/review:5.3
 ```
 
 ```
+$ docker pull ghcr.io/vvakame/review:5.8
 $ docker pull ghcr.io/vvakame/review:5.7
 $ docker pull ghcr.io/vvakame/review:5.6
 $ docker pull ghcr.io/vvakame/review:5.5
