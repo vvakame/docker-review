@@ -4,7 +4,7 @@ LABEL maintainer="vvakame@gmail.com"
 # https://docs.docker.com/engine/reference/builder/#automatic-platform-args-in-the-global-scope
 ARG TARGETARCH
 
-ENV REVIEW_VERSION 5.5.0
+ENV REVIEW_VERSION 5.8.0
 ENV NODEJS_VERSION 20
 
 # ENV PANDOC_VERSION 2.17.1.1
