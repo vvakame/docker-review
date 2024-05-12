@@ -18,10 +18,11 @@ docker-composeを使った時の手引としても使えます。
 ### サポートしているタグ
 
 Re:VIEWのバージョン毎にイメージを作成しています。
-現在存在しているタグは `latest`, `5.3`, `5.4`, `5.5`, `5.6`, `5.7`, `5.8` です。
+現在存在しているタグは `latest`, `5.3`, `5.4`, `5.5`, `5.6`, `5.7`, `5.8`, `5.9` です。
 `2.3`, `2.4` , `2.5`, `3.2`, `4.2`, `5.0`, `5.1`, `5.2` もDocker Hub上に存在していますが、サポートは終了しています。
 
 ```
+$ docker pull vvakame/review:5.9
 $ docker pull vvakame/review:5.8
 $ docker pull vvakame/review:5.7
 $ docker pull vvakame/review:5.6
@@ -31,6 +32,7 @@ $ docker pull vvakame/review:5.3
 ```
 
 ```
+$ docker pull ghcr.io/vvakame/review:5.9
 $ docker pull ghcr.io/vvakame/review:5.8
 $ docker pull ghcr.io/vvakame/review:5.7
 $ docker pull ghcr.io/vvakame/review:5.6
